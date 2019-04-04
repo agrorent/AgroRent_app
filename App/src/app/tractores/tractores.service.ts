@@ -7,7 +7,6 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 
-
 export class TractoresService {
   tractoressChanged = new Subject<Tractores[]>();
 

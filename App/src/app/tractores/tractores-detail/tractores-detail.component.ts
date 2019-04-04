@@ -28,7 +28,7 @@ export class TractoresDetailComponent implements OnInit {
     )
   }
   onAddToApartado() {
-    this.tractoresService.addCaracteristicaToApartado(this.tractores.caracteristicas);
+    this.tractoresService.addCaracteristicasToApartado(this.tractores.caracteristicas);
   }
 
   onEditTractores() {
