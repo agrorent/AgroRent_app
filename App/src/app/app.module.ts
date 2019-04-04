@@ -1,32 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TractoresComponent } from './tractores/tractores.component';
-import { ApartadoComponent } from './apartado/apartado.component';
-import { ApartadoEditComponent } from './apartado/apartado-edit/apartado-edit.component';
-import { TractoresDetailComponent } from './tractores/tractores-detail/tractores-detail.component';
-import { TractoresEditComponent } from './tractores/tractores-edit/tractores-edit.component';
 import { TractoresListComponent } from './tractores/tractores-list/tractores-list.component';
-import { TractoresStartComponent } from './tractores/tractores-start/tractores-start.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { DropdownDirective } from './shared/dropdown.directive';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { AppRountingModule } from './app-routing.module';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipeService } from './recipes/recipe.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TractoresComponent,
-    ApartadoComponent,
-    ApartadoEditComponent,
-    TractoresDetailComponent,
-    TractoresEditComponent,
-    TractoresListComponent,
-    TractoresStartComponent,
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    ShoppingListComponent,
+    ShoppingEditComponent,
+    DropdownDirective,
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRountingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
