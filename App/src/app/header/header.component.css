@@ -1,12 +1,14 @@
 #logo-navbar {
-    color: forestgreen;
+    color: white;
     font-weight: bold;
 }
 
-#logo-navbar:hover {
-    opacity: 0.6;
+.navbar-element {
+    color: white;
 }
-
-.navbar-brand {
-
+.navbar-element:hover {
+    text-decoration: underline;
+    color: white;
+    background-color: white;
+    opacity: 0.5;
 }
