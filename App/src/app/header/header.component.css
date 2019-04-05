@@ -1,0 +1,12 @@
+#logo-navbar {
+    color: forestgreen;
+    font-weight: bold;
+}
+
+#logo-navbar:hover {
+    opacity: 0.6;
+}
+
+.navbar-brand {
+
+}
