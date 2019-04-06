@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img [src]="tractores.imagePath" alt="{{ tractores.name }}" class="img-responsive" style="max-height: 300px">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ tractores.name }}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div
+      class="btn-group"
+      appDropdown>
+      <button type="button" class="btn btn-primary dropdown-toggle">Administrar tractores <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a (click)="onAddToApartado()" style="cursor: pointer;">Apartado</a></li>
+        <li><a style="cursor: pointer;" (click)="onEditTractores()">Editar</a></li>
+        <li><a style="cursor: pointer;" (click)="onDeleteTractores()">Eliminar </a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{ tractores.description }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <ul  class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let caracteristica of recipe.caracteristicas"
+        >{{ caracteristica.name }} - {{ caracteristica.amount }}</li>
+    </ul>
+  </div>
+</div>
