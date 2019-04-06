@@ -1,42 +1,53 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { TractoresComponent } from './tractores/tractores.component';
-import { TractoresListComponent } from './tractores/tractores-list/tractores-list.component';
-import { TractoresDetailComponent } from './tractores/tractores-detail/tractores-detail.component';
-import { TractoresItemComponent } from './tractores/tractores-list/tractores-item/tractores-item.component';
-import { ApartadoComponent } from './apartado/apartado.component';
-import { ApartadoEditComponent } from './apartado/apartado-edit/apartado-edit.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
-import { ApartadoService } from './apartado/apartado.service';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRountingModule } from './app-routing.module';
-import { TractoresStartComponent } from './tractores/tractores-start/tractores-start.component';
-import { TractoresEditComponent } from './tractores/tractores-edit/tractores-edit.component';
-import { TractoresService } from './tractores/tractores.service';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipeService } from './recipes/recipe.service';
+import { DataStorageService } from './shared/data-storage.service';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TractoresComponent,
-    TractoresListComponent,
-    TractoresDetailComponent,
-    TractoresItemComponent,
-    ApartadoComponent,
-    ApartadoEditComponent,
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    ShoppingListComponent,
+    ShoppingEditComponent,
     DropdownDirective,
-    TractoresStartComponent,
-    TractoresService
+    RecipeStartComponent,
+    RecipeEditComponent
+
   ],
   imports: [
     BrowserModule,
     AppRountingModule,
     FormsModule,
-    ReactiveFormsModule
+
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [ApartadoService, TractoresService],
+  providers: [ShoppingListService, RecipeService, DataStorageService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
