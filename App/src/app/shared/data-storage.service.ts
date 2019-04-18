@@ -12,13 +12,13 @@ export class DataStorageService {
   constructor(private http: Http, private recipeService: RecipeService,
               private authService: AuthService) {}
 
-  storeRecipes() {
+  storeTractores() {
     const token = this.authService.getToken();
     return this.http.put('https://login-a2cf2.firebaseio.com/recipes.json?auth='+token,
                   this.recipeService.getTractores());
   }
 
-  getRecipes() {
+  getTractores() {
     const token = this.authService.getToken();
     this.http.get('https://login-a2cf2.firebaseio.com/recipes.json?auth=' + token)
     .pipe(map(

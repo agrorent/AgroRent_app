@@ -16,7 +16,7 @@ export class HeaderComponent {
   }
   onSaveData() {
     console.log('hola');
-    this.dataStorageService.storeRecipes()
+    this.dataStorageService.storeTractores()
       .subscribe(
         (response: Response) => {
           console.log(response);
@@ -26,7 +26,7 @@ export class HeaderComponent {
 
   onFetchData() {
     console.log('hola');
-    this.dataStorageService.getRecipes();
+    this.dataStorageService.getTractores();
   }
 
   onLogout(){

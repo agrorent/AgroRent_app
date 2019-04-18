@@ -55,7 +55,7 @@ export class RecipeService {
   }
 
   addTractoresToApartado(ingredients: Ingredient[]) {
-    this.slService.addIngredients(ingredients);
+    this.slService.addCaracteristicas(ingredients);
   }
 
   addTractor(recipe: Recipe) {

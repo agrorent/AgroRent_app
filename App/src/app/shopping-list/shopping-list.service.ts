@@ -9,30 +9,30 @@ export class ShoppingListService {
     new Ingredient('Precio por Hectárea (MXN)', 1400)
   ];
 
-  getIngredients() {
+  getCaracteristicas() {
     return this.ingredients.slice();
   }
 
-  addIngredient(ingredient: Ingredient) {
+  addCaracteristica(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
-  addIngredients(ingredients: Ingredient[]) {
+  addCaracteristicas(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
-  getIngredient(index: number) {
+  getCaracteristica(index: number) {
     return this.ingredients[index];
   }
 
-  updateIngredient(index: number, newIngredient: Ingredient) {
+  updateCaracteristica(index: number, newIngredient: Ingredient) {
     this.ingredients[index] = newIngredient;
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
-  deleteIngredient(index: number) {
+  deleteCaracteristica(index: number) {
     this.ingredients.splice(index, 1);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
