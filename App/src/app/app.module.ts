@@ -5,12 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { TractoresComponent } from './recipes/recipes.component';
+import { TractorListComponent } from './recipes/recipe-list/recipe-list.component';
+import { TractorDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { TractorItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { ApartadoComponent } from './shopping-list/shopping-list.component';
+import { ApartadoEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRountingModule } from './app-routing.module';
@@ -27,12 +27,12 @@ import { AuthGuard } from './auth/auth-guard.service';
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
+    TractoresComponent,
+    TractorListComponent,
+    TractorDetailComponent,
+    TractorItemComponent,
+    ApartadoComponent,
+    ApartadoEditComponent,
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,

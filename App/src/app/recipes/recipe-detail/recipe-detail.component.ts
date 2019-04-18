@@ -10,7 +10,7 @@ import { RecipeService } from '../recipe.service';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css']
 })
-export class RecipeDetailComponent implements OnInit {
+export class TractorDetailComponent implements OnInit {
   recipe: Recipe;
   id: number;
 

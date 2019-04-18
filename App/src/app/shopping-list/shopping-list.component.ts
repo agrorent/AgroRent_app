@@ -8,7 +8,7 @@ import { ShoppingListService } from './shopping-list.service';
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
 })
-export class ShoppingListComponent implements OnInit, OnDestroy {
+export class ApartadoComponent implements OnInit, OnDestroy {
   ingredients: Ingredient[];
   private subscription: Subscription;
 

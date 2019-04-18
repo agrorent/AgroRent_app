@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
 })
-export class RecipeListComponent implements OnInit, OnDestroy {
+export class TractorListComponent implements OnInit, OnDestroy {
   recipes: Recipe[] = [];
   subscription: Subscription
 

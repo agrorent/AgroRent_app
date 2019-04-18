@@ -9,7 +9,7 @@ import { ShoppingListService } from '../shopping-list.service';
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
 })
-export class ShoppingEditComponent implements OnInit, OnDestroy {
+export class ApartadoEditComponent implements OnInit, OnDestroy {
   @ViewChild('f') slForm: NgForm;
 
   subscription: Subscription;

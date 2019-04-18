@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
 })
-export class RecipesComponent implements OnInit {
+export class TractoresComponent implements OnInit {
 
 
   constructor() { }
