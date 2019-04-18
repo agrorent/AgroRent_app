@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
-import { Ingredient } from 'src/app/shared/ingredient.module';
+import { Caracteristica } from 'src/app/shared/ingredient.module';
 import { ApartadoListService } from '../shopping-list.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class ApartadoEditComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   editMode = false;
   editedItemIndex: number;
-  editedItem: Ingredient;
+  editedItem: Caracteristica;
 
   constructor(private slService: ApartadoListService) { }
 
@@ -36,7 +36,7 @@ export class ApartadoEditComponent implements OnInit, OnDestroy {
 
   onSubmit(form: NgForm) {
     const value = form.value;
-    const newIngredient = new Ingredient(value.name, value.amount);
+    const newIngredient = new Caracteristica(value.name, value.amount);
     if (this.editMode) {
       this.slService.updateCaracteristica(this.editedItemIndex, newIngredient);
     } else {

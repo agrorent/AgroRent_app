@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Recipe } from '../../recipe.model';
+import { Tractor } from '../../recipe.model';
 
 @Component({
   selector: 'app-recipe-item',
@@ -8,7 +8,7 @@ import { Recipe } from '../../recipe.model';
   styleUrls: ['./recipe-item.component.css']
 })
 export class TractorItemComponent implements OnInit {
-  @Input() recipe: Recipe;
+  @Input() recipe: Tractor;
   @Input() index: number;
 
   ngOnInit() {

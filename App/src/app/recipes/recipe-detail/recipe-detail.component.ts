@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import { Recipe } from '../recipe.model';
+import { Tractor } from '../recipe.model';
 import { TractorService } from '../recipe.service';
 
 
@@ -11,7 +11,7 @@ import { TractorService } from '../recipe.service';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class TractorDetailComponent implements OnInit {
-  recipe: Recipe;
+  recipe: Tractor;
   id: number;
 
   constructor(private recipeService: TractorService,
@@ -28,7 +28,7 @@ export class TractorDetailComponent implements OnInit {
     );
   }
   onAddToApartado() {
-    this.recipeService.addTractoresToApartado(this.recipe.ingredients);
+    this.recipeService.addTractoresToApartado(this.recipe.caracteristicas);
   }
 
   onEditTractor() {

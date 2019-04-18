@@ -1,24 +1,24 @@
-import { Ingredient } from '../shared/ingredient.module';
+import { Caracteristica } from '../shared/ingredient.module';
 import { Subject } from 'rxjs';
 
 export class ApartadoListService {
-  ingredientsChanged = new Subject<Ingredient[]>();
+  ingredientsChanged = new Subject<Caracteristica[]>();
   startedEditing = new Subject<number>();
-  private ingredients: Ingredient[] = [
-    new Ingredient('Kilometraje', 55780),
-    new Ingredient('Precio por Hectárea (MXN)', 1400)
+  private ingredients: Caracteristica[] = [
+    new Caracteristica('Kilometraje', 55780),
+    new Caracteristica('Precio por Hectárea (MXN)', 1400)
   ];
 
   getCaracteristicas() {
     return this.ingredients.slice();
   }
 
-  addCaracteristica(ingredient: Ingredient) {
+  addCaracteristica(ingredient: Caracteristica) {
     this.ingredients.push(ingredient);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
-  addCaracteristicas(ingredients: Ingredient[]) {
+  addCaracteristicas(ingredients: Caracteristica[]) {
     this.ingredients.push(...ingredients);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
@@ -27,7 +27,7 @@ export class ApartadoListService {
     return this.ingredients[index];
   }
 
-  updateCaracteristica(index: number, newIngredient: Ingredient) {
+  updateCaracteristica(index: number, newIngredient: Caracteristica) {
     this.ingredients[index] = newIngredient;
     this.ingredientsChanged.next(this.ingredients.slice());
   }

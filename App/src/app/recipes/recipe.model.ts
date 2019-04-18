@@ -1,16 +1,16 @@
-import { Ingredient } from '../shared/ingredient.module';
+import { Caracteristica } from '../shared/ingredient.module';
 
-export class Recipe {
+export class Tractor {
   public name: string;
   public description: string;
   public imagePath: string;
-  public ingredients: Ingredient[];
+  public caracteristicas: Caracteristica[];
 
-  constructor(names: string, desc: string, imaPath: string, ingredients: Ingredient[] ){
+  constructor(names: string, desc: string, imaPath: string, ingredients: Caracteristica[] ) {
     this.name = names;
     this.description = desc;
     this.imagePath = imaPath;
-    this.ingredients = ingredients;
+    this.caracteristicas = ingredients;
   }
 
 }

@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import { map } from "rxjs/operators";
 
 import { TractorService } from '../recipes/recipe.service';
-import { Recipe } from '../recipes/recipe.model';
+import { Tractor } from '../recipes/recipe.model';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -23,18 +23,18 @@ export class DataStorageService {
     this.http.get('https://login-a2cf2.firebaseio.com/recipes.json?auth=' + token)
     .pipe(map(
       (response: Response) => {
-        const recipes: Recipe[] = response.json();
+        const recipes: Tractor[] = response.json();
         for (let recipe of recipes) {
-          if (!recipe['ingredients']) {
+          if (!recipe['caracteristicas']) {
             console.log('recipe');
-            recipe['ingredients'] = [];
+            recipe['caracteristicas'] = [];
           }
         }
         return recipes;
       }
     ))
     .subscribe(
-      (recipes: Recipe[]) => {
+      (recipes: Tractor[]) => {
         this.recipeService.setTractores(recipes);
         console.log('manda recipes');
       }

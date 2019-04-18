@@ -40,7 +40,7 @@ export class TractorEditComponent implements OnInit {
   }
 
   onAddCaracteristica() {
-    (<FormArray> this.recipeForm.get('ingredients')).push(
+    (<FormArray> this.recipeForm.get('caracteristicas')).push(
       new FormGroup({
         'name': new FormControl(null, Validators.required),
         'amount': new FormControl(null, [
@@ -65,8 +65,8 @@ export class TractorEditComponent implements OnInit {
       recipeName = recipe.name;
       recipeImagePath = recipe.imagePath;
       recipeDescription = recipe.description;
-      if (recipe['ingredients']) {
-        for (let ingredient of recipe.ingredients) {
+      if (recipe['caracteristicas']) {
+        for (let ingredient of recipe.caracteristicas) {
           recipeIngredients.push(
             new FormGroup({
               'name': new FormControl(ingredient.name, Validators.required),
@@ -87,14 +87,14 @@ export class TractorEditComponent implements OnInit {
       'imagePath': new FormControl(recipeImagePath, Validators.required),
 // tslint:disable-next-line: object-literal-key-quotes
       'description': new FormControl(recipeDescription, Validators.required ),
-      'ingredients': recipeIngredients
+      'caracteristicas': recipeIngredients
     });
   }
   onDeleteCaracteristica(index: number) {
-    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
+    (<FormArray>this.recipeForm.get('caracteristicas')).removeAt(index);
   }
 
   getControls() {
-    return (<FormArray>this.recipeForm.get('ingredients')).controls;
+    return (<FormArray>this.recipeForm.get('caracteristicas')).controls;
   }
 }
