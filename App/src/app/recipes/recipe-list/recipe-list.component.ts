@@ -28,7 +28,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     this.recipes = this.recipeService.getTractores();
   }
 
-  onNewRecipe() {
+  onNewTractor() {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
 

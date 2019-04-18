@@ -32,14 +32,14 @@ export class RecipeEditComponent implements OnInit {
   }
   onSubmit() {
       if (this.editMode) {
-        this.recipeService.updateRecipe(this.id, this.recipeForm.value);
+        this.recipeService.updateTractor(this.id, this.recipeForm.value);
       } else {
-        this.recipeService.addRecipe(this.recipeForm.value);
+        this.recipeService.addTractor(this.recipeForm.value);
     }
       this.onCancel();
   }
 
-  onAddIngredient() {
+  onAddCaracteristica() {
     (<FormArray> this.recipeForm.get('ingredients')).push(
       new FormGroup({
         'name': new FormControl(null, Validators.required),
@@ -90,7 +90,7 @@ export class RecipeEditComponent implements OnInit {
       'ingredients': recipeIngredients
     });
   }
-  onDeleteIngredient(index: number) {
+  onDeleteCaracteristica(index: number) {
     (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
 
