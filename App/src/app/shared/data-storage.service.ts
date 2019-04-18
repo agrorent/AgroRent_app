@@ -15,7 +15,7 @@ export class DataStorageService {
   storeRecipes() {
     const token = this.authService.getToken();
     return this.http.put('https://login-a2cf2.firebaseio.com/recipes.json?auth='+token,
-                  this.recipeService.getTractores());
+                  this.recipeService.getRecipes());
   }
 
   getRecipes() {
@@ -35,7 +35,7 @@ export class DataStorageService {
     ))
     .subscribe(
       (recipes: Recipe[]) => {
-        this.recipeService.setTractores(recipes);
+        this.recipeService.setRecipes(recipes);
         console.log('manda recipes');
       }
     );

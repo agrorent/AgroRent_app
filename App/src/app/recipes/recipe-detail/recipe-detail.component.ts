@@ -23,12 +23,12 @@ export class RecipeDetailComponent implements OnInit {
     .subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        this.recipe = this.recipeService.getTractor(this.id);
+        this.recipe = this.recipeService.getRecipe(this.id);
       }
     )
   }
   onAddToShoppingList() {
-    this.recipeService.addTractoresToApartado(this.recipe.ingredients);
+    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }
 
   onEditRecipe() {
