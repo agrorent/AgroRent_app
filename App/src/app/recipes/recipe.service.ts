@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.module';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
+import { ApartadoListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
 
 @Injectable()
 
 
-export class RecipeService {
+export class TractorService {
   recipesChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
@@ -39,7 +39,7 @@ export class RecipeService {
               new Ingredient('Precio por Hectárea (MXN)', 20000)
         ])
       ];
-  constructor(private slService: ShoppingListService) {}
+  constructor(private slService: ApartadoListService) {}
 
   setTractores(recipes: Recipe[]) {
     this.recipes = recipes;

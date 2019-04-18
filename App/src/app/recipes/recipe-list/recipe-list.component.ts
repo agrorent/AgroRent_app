@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Recipe } from '../recipe.model';
-import { RecipeService } from '../recipe.service';
+import { TractorService } from '../recipe.service';
 
 import { Router, ActivatedRoute} from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -13,7 +13,7 @@ export class TractorListComponent implements OnInit, OnDestroy {
   recipes: Recipe[] = [];
   subscription: Subscription
 
-  constructor(private recipeService: RecipeService,
+  constructor(private recipeService: TractorService,
               private router: Router,
               private route: ActivatedRoute) {
   }

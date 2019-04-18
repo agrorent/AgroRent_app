@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
-import { RecipeService } from '../recipe.service';
+import { TractorService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-edit',
   templateUrl: './recipe-edit.component.html',
   
 })
-export class RecipeEditComponent implements OnInit {
+export class TractorEditComponent implements OnInit {
   id: number;
   editMode = false;
   recipeForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-              private recipeService: RecipeService,
+              private recipeService: TractorService,
               private router: Router) { }
 
   ngOnInit() {

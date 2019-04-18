@@ -12,11 +12,11 @@ import { TractorItemComponent } from './recipes/recipe-list/recipe-item/recipe-i
 import { ApartadoComponent } from './shopping-list/shopping-list.component';
 import { ApartadoEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
-import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { ApartadoListService } from './shopping-list/shopping-list.service';
 import { AppRountingModule } from './app-routing.module';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { RecipeService } from './recipes/recipe.service';
+import { TractorStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { TractorEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { TractorService } from './recipes/recipe.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { HttpModule } from '@angular/http';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -34,8 +34,8 @@ import { AuthGuard } from './auth/auth-guard.service';
     ApartadoComponent,
     ApartadoEditComponent,
     DropdownDirective,
-    RecipeStartComponent,
-    RecipeEditComponent,
+    TractorStartComponent,
+    TractorEditComponent,
     SignupComponent,
     SigninComponent
   ],
@@ -47,7 +47,7 @@ import { AuthGuard } from './auth/auth-guard.service';
     HttpClientModule,
     HttpModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
+  providers: [ApartadoListService, TractorService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

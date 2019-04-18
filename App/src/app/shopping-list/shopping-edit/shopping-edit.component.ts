@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { Ingredient } from 'src/app/shared/ingredient.module';
-import { ShoppingListService } from '../shopping-list.service';
+import { ApartadoListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -17,7 +17,7 @@ export class ApartadoEditComponent implements OnInit, OnDestroy {
   editedItemIndex: number;
   editedItem: Ingredient;
 
-  constructor(private slService: ShoppingListService) { }
+  constructor(private slService: ApartadoListService) { }
 
   ngOnInit() {
     this.subscription = this.slService.startedEditing.

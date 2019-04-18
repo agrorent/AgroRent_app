@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Recipe } from '../recipe.model';
-import { RecipeService } from '../recipe.service';
+import { TractorService } from '../recipe.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class TractorDetailComponent implements OnInit {
   recipe: Recipe;
   id: number;
 
-  constructor(private recipeService: RecipeService,
+  constructor(private recipeService: TractorService,
               private route: ActivatedRoute,
               private router: Router) { }
 
