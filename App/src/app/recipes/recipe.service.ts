@@ -12,16 +12,15 @@ export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
-    // tslint:disable-next-line: max-line-length
         new Recipe(
             'John Deere RX Series',
             'Tractor',
+            // tslint:disable-next-line:max-line-length
             'https://static.agcanada.com/wp-content/uploads/sites/4/2018/09/0e062cef-ecb3-42df-b508-264.jpg#_ga=2.242393218.1249500168.1554435505-46278877.1554435505',
         [
           new Ingredient('Kilometraje', 13980),
           new Ingredient('Precio por Hectárea (MXN)', 20000)
         ]),
-    // tslint:disable-next-line: max-line-length
         new Recipe(
             'John Deere RT Series',
             'Tractor',
@@ -33,60 +32,29 @@ export class RecipeService {
         new Recipe(
           'John Deere RX Series',
           'Tractor',
+            // tslint:disable-next-line:max-line-length
           'https://static.agcanada.com/wp-content/uploads/sites/4/2018/09/0e062cef-ecb3-42df-b508-264.jpg#_ga=2.242393218.1249500168.1554435505-46278877.1554435505',
             [
-              new Ingredient('Kilometraje', 13980),
-              new Ingredient('Precio por Hectárea (MXN)', 20000)
-        ]),
-        new Recipe(
-          'John Deere RX Series',
-          'Tractor',
-          'https://static.agcanada.com/wp-content/uploads/sites/4/2018/09/0e062cef-ecb3-42df-b508-264.jpg#_ga=2.242393218.1249500168.1554435505-46278877.1554435505',
-            [
-              new Ingredient('Kilometraje', 1390),
-              new Ingredient('Precio por Hectárea (MXN)', 30000)
-        ]),
-      new Recipe(
-          'John Deere RT Series',
-          'Tractor',
-          'https://www.extremetech.com/wp-content/uploads/2017/03/john-deere-2015jpg-963565ff3304c742-640x427.jpg',
-          [
-            new Ingredient('Kilometraje', 10980),
-            new Ingredient('Precio por Hectárea (MXN)', 24200)
-        ]),
-      new Recipe(
-          'John Deere RX Series',
-          'Tractor',
-          'https://static.agcanada.com/wp-content/uploads/sites/4/2018/09/0e062cef-ecb3-42df-b508-264.jpg#_ga=2.242393218.1249500168.1554435505-46278877.1554435505',
-          [
-            new Ingredient('Kilometraje', 1102),
-            new Ingredient('Precio por Hectárea (MXN)', 20120)
-        ]),
-      new Recipe(
-          'John Deere RT Series',
-          'Tractor',
-          'https://www.extremetech.com/wp-content/uploads/2017/03/john-deere-2015jpg-963565ff3304c742-640x427.jpg',
-          [
               new Ingredient('Kilometraje', 13980),
               new Ingredient('Precio por Hectárea (MXN)', 20000)
         ])
       ];
   constructor(private slService: ShoppingListService) {}
 
-  setRecipes(recipes: Recipe[]) {
+  setTractores(recipes: Recipe[]) {
     this.recipes = recipes;
     this.recipesChanged.next(this.recipes.slice());
   }
 
-  getRecipes() {
+  getTractores() {
     return this.recipes.slice(); // We get a copy of the array whit slice
   }
 
-  getRecipe(index: number){
+  getTractor(index: number){
     return this.recipes[index];
   }
 
-  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+  addTractoresToApartado(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
   }
 
