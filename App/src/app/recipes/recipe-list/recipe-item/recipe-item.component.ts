@@ -8,7 +8,7 @@ import { Tractor } from '../../recipe.model';
   styleUrls: ['./recipe-item.component.css']
 })
 export class TractorItemComponent implements OnInit {
-  @Input() recipe: Tractor;
+  @Input() tractor: Tractor;
   @Input() index: number;
 
   ngOnInit() {

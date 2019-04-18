@@ -5,7 +5,7 @@ import * as firebase from 'firebase';
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
-  loadedFeature = 'recipe';
+  loadedFeature = 'tractor';
 
   ngOnInit(){
     firebase.initializeApp({ 

@@ -9,18 +9,18 @@ import { ApartadoListService } from './shopping-list.service';
   templateUrl: './shopping-list.component.html',
 })
 export class ApartadoComponent implements OnInit, OnDestroy {
-  ingredients: Caracteristica[];
+  caracteristicas: Caracteristica[];
   private subscription: Subscription;
 
   constructor(private slService: ApartadoListService) {
 
   }
   ngOnInit() {
-    this.ingredients = this.slService.getCaracteristicas();
-    this.subscription = this.slService.ingredientsChanged
+    this.caracteristicas = this.slService.getCaracteristicas();
+    this.subscription = this.slService.caracteristicasChanged
      .subscribe(
       (ingredients: Caracteristica[]) => {
-        this.ingredients = ingredients;
+        this.caracteristicas = ingredients;
       }
       );
   }

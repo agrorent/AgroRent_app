@@ -23,14 +23,14 @@ export class DataStorageService {
     this.http.get('https://login-a2cf2.firebaseio.com/recipes.json?auth=' + token)
     .pipe(map(
       (response: Response) => {
-        const recipes: Tractor[] = response.json();
-        for (let recipe of recipes) {
-          if (!recipe['caracteristicas']) {
-            console.log('recipe');
-            recipe['caracteristicas'] = [];
+        const tractores: Tractor[] = response.json();
+        for (let tractor of tractores) {
+          if (!tractor['caracteristicas']) {
+            console.log('tractor');
+            tractor['caracteristicas'] = [];
           }
         }
-        return recipes;
+        return tractores;
       }
     ))
     .subscribe(

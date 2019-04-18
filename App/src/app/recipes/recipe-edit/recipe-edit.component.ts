@@ -12,10 +12,10 @@ import { TractorService } from '../recipe.service';
 export class TractorEditComponent implements OnInit {
   id: number;
   editMode = false;
-  recipeForm: FormGroup;
+  tractorForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-              private recipeService: TractorService,
+              private tractorService: TractorService,
               private router: Router) { }
 
   ngOnInit() {
@@ -32,15 +32,15 @@ export class TractorEditComponent implements OnInit {
   }
   onSubmit() {
       if (this.editMode) {
-        this.recipeService.updateTractor(this.id, this.recipeForm.value);
+        this.tractorService.updateTractor(this.id, this.tractorForm.value);
       } else {
-        this.recipeService.addTractor(this.recipeForm.value);
+        this.tractorService.addTractor(this.tractorForm.value);
     }
       this.onCancel();
   }
 
   onAddCaracteristica() {
-    (<FormArray> this.recipeForm.get('caracteristicas')).push(
+    (<FormArray> this.tractorForm.get('caracteristicas')).push(
       new FormGroup({
         'name': new FormControl(null, Validators.required),
         'amount': new FormControl(null, [
@@ -55,19 +55,19 @@ export class TractorEditComponent implements OnInit {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
   private initForm() {
-    let recipeName = '';
-    let recipeImagePath = '';
-    let recipeDescription = '';
-    let recipeIngredients = new FormArray([]);
+    let tractorName = '';
+    let tractorImagePath = '';
+    let tractorDescription = '';
+    let tractorIngredients = new FormArray([]);
 
     if (this.editMode) {
-      const recipe = this.recipeService.getTractor(this.id);
-      recipeName = recipe.name;
-      recipeImagePath = recipe.imagePath;
-      recipeDescription = recipe.description;
+      const recipe = this.tractorService.getTractor(this.id);
+      tractorName = recipe.name;
+      tractorImagePath = recipe.imagePath;
+      tractorDescription = recipe.description;
       if (recipe['caracteristicas']) {
         for (let ingredient of recipe.caracteristicas) {
-          recipeIngredients.push(
+          tractorIngredients.push(
             new FormGroup({
               'name': new FormControl(ingredient.name, Validators.required),
               'amount': new FormControl(ingredient.amount, [
@@ -80,21 +80,21 @@ export class TractorEditComponent implements OnInit {
       }
     }
 
-    this.recipeForm = new FormGroup({
+    this.tractorForm = new FormGroup({
 // tslint:disable-next-line: object-literal-key-quotes
-      'name': new FormControl(recipeName, Validators.required),
+      'name': new FormControl(tractorName, Validators.required),
 // tslint:disable-next-line: object-literal-key-quotes
-      'imagePath': new FormControl(recipeImagePath, Validators.required),
+      'imagePath': new FormControl(tractorImagePath, Validators.required),
 // tslint:disable-next-line: object-literal-key-quotes
-      'description': new FormControl(recipeDescription, Validators.required ),
-      'caracteristicas': recipeIngredients
+      'description': new FormControl(tractorDescription, Validators.required ),
+      'caracteristicas': tractorIngredients
     });
   }
   onDeleteCaracteristica(index: number) {
-    (<FormArray>this.recipeForm.get('caracteristicas')).removeAt(index);
+    (<FormArray>this.tractorForm.get('caracteristicas')).removeAt(index);
   }
 
   getControls() {
-    return (<FormArray>this.recipeForm.get('caracteristicas')).controls;
+    return (<FormArray>this.tractorForm.get('caracteristicas')).controls;
   }
 }

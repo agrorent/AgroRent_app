@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './recipe-list.component.html',
 })
 export class TractorListComponent implements OnInit, OnDestroy {
-  recipes: Tractor[] = [];
+  tractores: Tractor[] = [];
   subscription: Subscription
 
   constructor(private recipeService: TractorService,
@@ -22,10 +22,10 @@ export class TractorListComponent implements OnInit, OnDestroy {
     this.subscription = this.recipeService.TractoresChanged.
     subscribe(
       (recipes: Tractor[]) => {
-        this.recipes = recipes;
+        this.tractores = recipes;
       }
     )
-    this.recipes = this.recipeService.getTractores();
+    this.tractores = this.recipeService.getTractores();
   }
 
   onNewTractor() {

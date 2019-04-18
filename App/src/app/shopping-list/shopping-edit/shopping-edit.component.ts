@@ -36,11 +36,11 @@ export class ApartadoEditComponent implements OnInit, OnDestroy {
 
   onSubmit(form: NgForm) {
     const value = form.value;
-    const newIngredient = new Caracteristica(value.name, value.amount);
+    const newCaracteristica = new Caracteristica(value.name, value.amount);
     if (this.editMode) {
-      this.slService.updateCaracteristica(this.editedItemIndex, newIngredient);
+      this.slService.updateCaracteristica(this.editedItemIndex, newCaracteristica);
     } else {
-      this.slService.addCaracteristica(newIngredient);
+      this.slService.addCaracteristica(newCaracteristica);
     }
     this.editMode = false;
     form.reset();

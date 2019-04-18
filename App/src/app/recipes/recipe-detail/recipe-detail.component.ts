@@ -11,10 +11,10 @@ import { TractorService } from '../recipe.service';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class TractorDetailComponent implements OnInit {
-  recipe: Tractor;
+  tractor: Tractor;
   id: number;
 
-  constructor(private recipeService: TractorService,
+  constructor(private tractorService: TractorService,
               private route: ActivatedRoute,
               private router: Router) { }
 
@@ -23,12 +23,12 @@ export class TractorDetailComponent implements OnInit {
     .subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        this.recipe = this.recipeService.getTractor(this.id);
+        this.tractor = this.tractorService.getTractor(this.id);
       }
     );
   }
   onAddToApartado() {
-    this.recipeService.addTractoresToApartado(this.recipe.caracteristicas);
+    this.tractorService.addTractoresToApartado(this.tractor.caracteristicas);
   }
 
   onEditTractor() {
@@ -36,7 +36,7 @@ export class TractorDetailComponent implements OnInit {
     // this.router.navigate([ '../', this.id, 'edit' ], {relativeTo: this.route});
   }
   onDeleteTractor() {
-    this.recipeService.deleteTractor(this.id);
+    this.tractorService.deleteTractor(this.id);
     this.router.navigate(['/recipes']);
   }
 }
