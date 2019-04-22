@@ -7,15 +7,15 @@ import * as firebase from 'firebase';
 export class AppComponent implements OnInit {
   loadedFeature = 'tractor';
 
-  ngOnInit(){
-    firebase.initializeApp({ 
+  ngOnInit() {
+    firebase.initializeApp({
     apiKey: "AIzaSyA6V5pLam4c8zAWpbjFS0KcbRwvaNjXXEY",
     authDomain: "login-a2cf2.firebaseapp.com"
   });
 
   }
 
-  onNavigate(feature: string){
+  onNavigate(feature: string) {
     this.loadedFeature = feature;
   }
 }
