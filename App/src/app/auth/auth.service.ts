@@ -7,15 +7,13 @@ export class AuthService{
 
     constructor(private router: Router) {}
     signupUser(email: string, password: string){
-        console.log("base");
         firebase.auth().createUserWithEmailAndPassword(email, password)
         .catch(
             error => console.log(error)
-        )
+        );
     }
 
     signinUser(email: string, password: string) {
-        console.log("in");
         firebase.auth().signInWithEmailAndPassword(email, password)
         .then(
             response => {
@@ -23,7 +21,7 @@ export class AuthService{
                 firebase.auth().currentUser.getIdToken()
                 .then(
                     (token: string) => this.token = token
-                )
+                );
 
             }
 
@@ -39,7 +37,6 @@ export class AuthService{
     }
 
     getToken(){
-        console.log("token");
          firebase.auth().currentUser.getIdToken()
          .then(
             (token: string) => this.token = token
@@ -48,7 +45,6 @@ export class AuthService{
     }
 
     isAuthenticated() {
-        console.log("auth");
         return this.token != null;
     }
 }

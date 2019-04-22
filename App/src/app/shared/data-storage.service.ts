@@ -40,4 +40,26 @@ export class DataStorageService {
       }
     );
   }
+
+    getTractoresStart() {
+        this.http.get('https://login-a2cf2.firebaseio.com/recipes.json')
+            .pipe(map(
+                (response: Response) => {
+                    const tractores: Tractor[] = response.json();
+                    for (let tractor of tractores) {
+                        if (!tractor['caracteristicas']) {
+                            console.log('tractor');
+                            tractor['caracteristicas'] = [];
+                        }
+                    }
+                    return tractores;
+                }
+            ))
+            .subscribe(
+                (recipes: Tractor[]) => {
+                    this.recipeService.setTractores(recipes);
+                    console.log('manda recipes');
+                }
+            );
+    }
 }
