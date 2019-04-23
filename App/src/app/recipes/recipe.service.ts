@@ -11,34 +11,7 @@ import { Subject } from 'rxjs';
 export class TractorService {
   TractoresChanged = new Subject<Tractor[]>();
 
-  private Tractores: Tractor[] = [
-        new Tractor(
-            'John Deere RX Series',
-            'Tractor',
-            // tslint:disable-next-line:max-line-length
-            'https://static.agcanada.com/wp-content/uploads/sites/4/2018/09/0e062cef-ecb3-42df-b508-264.jpg#_ga=2.242393218.1249500168.1554435505-46278877.1554435505',
-        [
-          new Caracteristica('Kilometraje', 13980),
-          new Caracteristica('Precio por Hectárea (MXN)', 20000)
-        ]),
-        new Tractor(
-            'John Deere RT Series',
-            'Tractor',
-            'https://www.extremetech.com/wp-content/uploads/2017/03/john-deere-2015jpg-963565ff3304c742-640x427.jpg',
-        [
-          new Caracteristica('Kilometraje', 11980),
-          new Caracteristica('Precio por Hectárea (MXN)', 20100)
-        ]),
-        new Tractor(
-          'John Deere RX Series',
-          'Tractor',
-            // tslint:disable-next-line:max-line-length
-          'https://static.agcanada.com/wp-content/uploads/sites/4/2018/09/0e062cef-ecb3-42df-b508-264.jpg#_ga=2.242393218.1249500168.1554435505-46278877.1554435505',
-            [
-              new Caracteristica('Kilometraje', 13980),
-              new Caracteristica('Precio por Hectárea (MXN)', 20000)
-        ])
-      ];
+  private Tractores: Tractor[] = [];
   constructor(private slService: ApartadoListService) {}
 
   setTractores(Tractores: Tractor[]) {
