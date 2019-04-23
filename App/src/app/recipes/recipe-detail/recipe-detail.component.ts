@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import { Recipe } from '../recipe.model';
-import { RecipeService } from '../recipe.service';
+import { Tractor } from '../recipe.model';
+import { TractorService } from '../recipe.service';
 
 
 @Component({
@@ -10,11 +10,11 @@ import { RecipeService } from '../recipe.service';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css']
 })
-export class RecipeDetailComponent implements OnInit {
-  recipe: Recipe;
+export class TractorDetailComponent implements OnInit {
+  tractor: Tractor;
   id: number;
 
-  constructor(private recipeService: RecipeService,
+  constructor(private tractorService: TractorService,
               private route: ActivatedRoute,
               private router: Router) { }
 
@@ -23,20 +23,20 @@ export class RecipeDetailComponent implements OnInit {
     .subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        this.recipe = this.recipeService.getRecipe(this.id);
+        this.tractor = this.tractorService.getTractor(this.id);
       }
-    )
+    );
   }
-  onAddToShoppingList() {
-    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+  onAddToApartado() {
+    this.tractorService.addTractoresToApartado(this.tractor.caracteristicas);
   }
 
-  onEditRecipe() {
+  onEditTractor() {
      this.router.navigate([ 'edit' ], {relativeTo: this.route});
-    //this.router.navigate([ '../', this.id, 'edit' ], {relativeTo: this.route});
+    // this.router.navigate([ '../', this.id, 'edit' ], {relativeTo: this.route});
   }
-  onDeleteRecipe() {
-    this.recipeService.deleteRecipe(this.id);
+  onDeleteTractor() {
+    this.tractorService.deleteTractor(this.id);
     this.router.navigate(['/recipes']);
   }
 }

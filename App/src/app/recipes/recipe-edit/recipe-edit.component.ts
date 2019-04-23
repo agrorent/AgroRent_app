@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
-import { RecipeService } from '../recipe.service';
+import { TractorService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-edit',
   templateUrl: './recipe-edit.component.html',
   
 })
-export class RecipeEditComponent implements OnInit {
+export class TractorEditComponent implements OnInit {
   id: number;
   editMode = false;
-  recipeForm: FormGroup;
+  tractorForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-              private recipeService: RecipeService,
+              private tractorService: TractorService,
               private router: Router) { }
 
   ngOnInit() {
@@ -32,15 +32,15 @@ export class RecipeEditComponent implements OnInit {
   }
   onSubmit() {
       if (this.editMode) {
-        this.recipeService.updateRecipe(this.id, this.recipeForm.value);
+        this.tractorService.updateTractor(this.id, this.tractorForm.value);
       } else {
-        this.recipeService.addRecipe(this.recipeForm.value);
+        this.tractorService.addTractor(this.tractorForm.value);
     }
       this.onCancel();
   }
 
-  onAddIngredient() {
-    (<FormArray> this.recipeForm.get('ingredients')).push(
+  onAddCaracteristica() {
+    (<FormArray> this.tractorForm.get('ingredients')).push(
       new FormGroup({
         'name': new FormControl(null, Validators.required),
         'amount': new FormControl(null, [
@@ -55,19 +55,19 @@ export class RecipeEditComponent implements OnInit {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
   private initForm() {
-    let recipeName = '';
-    let recipeImagePath = '';
-    let recipeDescription = '';
-    let recipeIngredients = new FormArray([]);
+    let tractorName = '';
+    let tractorImagePath = '';
+    let tractorDescription = '';
+    let tractorIngredients = new FormArray([]);
 
     if (this.editMode) {
-      const recipe = this.recipeService.getRecipe(this.id);
-      recipeName = recipe.name;
-      recipeImagePath = recipe.imagePath;
-      recipeDescription = recipe.description;
+      const recipe = this.tractorService.getTractor(this.id);
+      tractorName = recipe.name;
+      tractorImagePath = recipe.imagePath;
+      tractorDescription = recipe.description;
       if (recipe['ingredients']) {
-        for (let ingredient of recipe.ingredients) {
-          recipeIngredients.push(
+        for (let ingredient of recipe.caracteristicas) {
+          tractorIngredients.push(
             new FormGroup({
               'name': new FormControl(ingredient.name, Validators.required),
               'amount': new FormControl(ingredient.amount, [
@@ -80,21 +80,21 @@ export class RecipeEditComponent implements OnInit {
       }
     }
 
-    this.recipeForm = new FormGroup({
+    this.tractorForm = new FormGroup({
 // tslint:disable-next-line: object-literal-key-quotes
-      'name': new FormControl(recipeName, Validators.required),
+      'name': new FormControl(tractorName, Validators.required),
 // tslint:disable-next-line: object-literal-key-quotes
-      'imagePath': new FormControl(recipeImagePath, Validators.required),
+      'imagePath': new FormControl(tractorImagePath, Validators.required),
 // tslint:disable-next-line: object-literal-key-quotes
-      'description': new FormControl(recipeDescription, Validators.required ),
-      'ingredients': recipeIngredients
+      'description': new FormControl(tractorDescription, Validators.required ),
+      'ingredients': tractorIngredients
     });
   }
-  onDeleteIngredient(index: number) {
-    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
+  onDeleteCaracteristica(index: number) {
+    (<FormArray>this.tractorForm.get('ingredients')).removeAt(index);
   }
 
   getControls() {
-    return (<FormArray>this.recipeForm.get('ingredients')).controls;
+    return (<FormArray>this.tractorForm.get('ingredients')).controls;
   }
 }

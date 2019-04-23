@@ -1,40 +1,40 @@
-import { Ingredient } from '../shared/ingredient.module';
+import { Caracteristica } from '../shared/ingredient.module';
 import { Subject } from 'rxjs';
 
-export class ShoppingListService {
-  ingredientsChanged = new Subject<Ingredient[]>();
+export class ApartadoListService {
+  caracteristicasChanged = new Subject<Caracteristica[]>();
   startedEditing = new Subject<number>();
-  private ingredients: Ingredient[] = [
-    new Ingredient('Apple', 5),
-    new Ingredient('Tomatos', 10)
+  private caracteristicas: Caracteristica[] = [
+    new Caracteristica('Kilometraje', 55780),
+    new Caracteristica('Precio por Hectárea (MXN)', 1400)
   ];
 
-  getIngredients() {
-    return this.ingredients.slice();
+  getCaracteristicas() {
+    return this.caracteristicas.slice();
   }
 
-  addIngredient(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
-    this.ingredientsChanged.next(this.ingredients.slice());
+  addCaracteristica(caracteristica: Caracteristica) {
+    this.caracteristicas.push(caracteristica);
+    this.caracteristicasChanged.next(this.caracteristicas.slice());
   }
 
-  addIngredients(ingredients: Ingredient[]) {
-    this.ingredients.push(...ingredients);
-    this.ingredientsChanged.next(this.ingredients.slice());
+  addCaracteristicas(caracteristicas: Caracteristica[]) {
+    this.caracteristicas.push(...caracteristicas);
+    this.caracteristicasChanged.next(this.caracteristicas.slice());
   }
 
-  getIngredient(index: number) {
-    return this.ingredients[index];
+  getCaracteristica(index: number) {
+    return this.caracteristicas[index];
   }
 
-  updateIngredient(index: number, newIngredient: Ingredient) {
-    this.ingredients[index] = newIngredient;
-    this.ingredientsChanged.next(this.ingredients.slice());
+  updateCaracteristica(index: number, newCaracteristica: Caracteristica) {
+    this.caracteristicas[index] = newCaracteristica;
+    this.caracteristicasChanged.next(this.caracteristicas.slice());
   }
 
-  deleteIngredient(index: number) {
-    this.ingredients.splice(index, 1);
-    this.ingredientsChanged.next(this.ingredients.slice());
+  deleteCaracteristica(index: number) {
+    this.caracteristicas.splice(index, 1);
+    this.caracteristicasChanged.next(this.caracteristicas.slice());
   }
 
 }

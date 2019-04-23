@@ -2,22 +2,22 @@ import { Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
-import { Ingredient } from 'src/app/shared/ingredient.module';
-import { ShoppingListService } from '../shopping-list.service';
+import { Caracteristica } from 'src/app/shared/ingredient.module';
+import { ApartadoListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
 })
-export class ShoppingEditComponent implements OnInit, OnDestroy {
+export class ApartadoEditComponent implements OnInit, OnDestroy {
   @ViewChild('f') slForm: NgForm;
 
   subscription: Subscription;
   editMode = false;
   editedItemIndex: number;
-  editedItem: Ingredient;
+  editedItem: Caracteristica;
 
-  constructor(private slService: ShoppingListService) { }
+  constructor(private slService: ApartadoListService) { }
 
   ngOnInit() {
     this.subscription = this.slService.startedEditing.
@@ -25,7 +25,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       (index: number) => {
         this.editMode = true;
         this.editedItemIndex = index;
-        this.editedItem = this.slService.getIngredient(index);
+        this.editedItem = this.slService.getCaracteristica(index);
         this.slForm.setValue({
           name: this.editedItem.name,
           amount: this.editedItem.amount
@@ -36,11 +36,11 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   onSubmit(form: NgForm) {
     const value = form.value;
-    const newIngredient = new Ingredient(value.name, value.amount);
+    const newCaracteristica = new Caracteristica(value.name, value.amount);
     if (this.editMode) {
-      this.slService.updateIngredient(this.editedItemIndex, newIngredient);
+      this.slService.updateCaracteristica(this.editedItemIndex, newCaracteristica);
     } else {
-      this.slService.addIngredient(newIngredient);
+      this.slService.addCaracteristica(newCaracteristica);
     }
     this.editMode = false;
     form.reset();
@@ -52,7 +52,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   }
 
   onDelete() {
-    this.slService.deleteIngredient(this.editedItemIndex);
+    this.slService.deleteCaracteristica(this.editedItemIndex);
     this.onClear();
 
   }

@@ -2,42 +2,64 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { map } from "rxjs/operators";
 
-import { RecipeService } from '../recipes/recipe.service';
-import { Recipe } from '../recipes/recipe.model';
+import { TractorService } from '../recipes/recipe.service';
+import { Tractor } from '../recipes/recipe.model';
 import { AuthService } from '../auth/auth.service';
 
 
 @Injectable()
 export class DataStorageService {
-  constructor(private http: Http, private recipeService: RecipeService,
+  constructor(private http: Http, private recipeService: TractorService,
               private authService: AuthService) {}
 
-  storeRecipes() {
+  storeTractores() {
     const token = this.authService.getToken();
     return this.http.put('https://login-a2cf2.firebaseio.com/recipes.json?auth='+token,
-                  this.recipeService.getRecipes());
+                  this.recipeService.getTractores());
   }
 
-  getRecipes() {
+  getTractores() {
     const token = this.authService.getToken();
     this.http.get('https://login-a2cf2.firebaseio.com/recipes.json?auth=' + token)
     .pipe(map(
       (response: Response) => {
-        const recipes: Recipe[] = response.json();
-        for (let recipe of recipes) {
-          if (!recipe['ingredients']) {
-            console.log('recipe');
-            recipe['ingredients'] = [];
+        const tractores: Tractor[] = response.json();
+        for (let tractor of tractores) {
+          if (!tractor['caracteristicas']) {
+            console.log('tractor');
+            tractor['caracteristicas'] = [];
           }
         }
-        return recipes;
+        return tractores;
       }
     ))
     .subscribe(
-      (recipes: Recipe[]) => {
-        this.recipeService.setRecipes(recipes);
+      (recipes: Tractor[]) => {
+        this.recipeService.setTractores(recipes);
         console.log('manda recipes');
       }
     );
   }
+
+    getTractoresStart() {
+        this.http.get('https://login-a2cf2.firebaseio.com/recipes.json')
+            .pipe(map(
+                (response: Response) => {
+                    const tractores: Tractor[] = response.json();
+                    for (let tractor of tractores) {
+                        if (!tractor['caracteristicas']) {
+                            console.log('tractor');
+                            tractor['caracteristicas'] = [];
+                        }
+                    }
+                    return tractores;
+                }
+            ))
+            .subscribe(
+                (recipes: Tractor[]) => {
+                    this.recipeService.setTractores(recipes);
+                    console.log('manda recipes');
+                }
+            );
+    }
 }

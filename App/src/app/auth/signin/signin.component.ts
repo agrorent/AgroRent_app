@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { DataStorageService } from '../../shared/data-storage.service';
 
 @Component({
   selector: 'app-signin',
@@ -9,7 +10,8 @@ import { AuthService } from '../auth.service';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private dataStorageService: DataStorageService ) { }
 
   ngOnInit() {
   }
@@ -19,6 +21,10 @@ export class SigninComponent implements OnInit {
     const password = form.value.password;
     this.authService.signinUser(email, password);
 
+  }
+
+  onFetch() {
+    this.dataStorageService.getTractoresStart();
   }
 
 }
