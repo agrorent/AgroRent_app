@@ -10,7 +10,7 @@ import { SignupComponent} from './auth/signup/signup.component';
 import { SigninComponent} from './auth/signin/signin.component';
 import { AuthGuard } from './auth/auth-guard.service';
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  { path: '', redirectTo: '/signin', pathMatch: 'full' },
   { path: 'recipes', component: TractoresComponent, children: [
     { path: '', component: TractorStartComponent },
     { path: 'new', component: TractorEditComponent, canActivate: [AuthGuard] },
