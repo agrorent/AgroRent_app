@@ -13,7 +13,8 @@ export class AuthService{
         );
     }
 
-    signinUser(email: string, password: string) {
+    // tslint:disable-next-line:ban-types
+    signinUser(email: string, password: string , callback: Function) {
         firebase.auth().signInWithEmailAndPassword(email, password)
         .then(
             response => {
@@ -27,7 +28,10 @@ export class AuthService{
 
         )
         .catch(
-            error => console.log(error)
+            error => {
+                console.log(error);
+                callback('Wrong user/password');
+            }
         );
     }
 

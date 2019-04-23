@@ -23,6 +23,9 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
+import { MessagesComponent } from './messages/messages.component';
+import { MessagesService } from './messages/messages.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,8 @@ import { AuthGuard } from './auth/auth-guard.service';
     TractorStartComponent,
     TractorEditComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,7 @@ import { AuthGuard } from './auth/auth-guard.service';
     HttpClientModule,
     HttpModule
   ],
-  providers: [ApartadoListService, TractorService, DataStorageService, AuthService, AuthGuard],
+  providers: [ApartadoListService, TractorService, DataStorageService, AuthService, AuthGuard, MessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
