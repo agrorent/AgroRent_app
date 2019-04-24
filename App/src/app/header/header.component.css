@@ -12,3 +12,7 @@
     background-color: white;
     opacity: 0.5;
 }
+
+.sign:hover {
+    text-decoration: underline;
+}

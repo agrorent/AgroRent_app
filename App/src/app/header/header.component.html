@@ -6,13 +6,15 @@
 
       <div class="navbar-default">
         <ul class="nav navbar-nav">
-        <li routerLinkActive="active" class="navbar-element"><a routerLink="/recipes">Catálogo</a></li>
-        <li routerLinkActive="active" class="navbar-element"><a routerLink="/shopping-list">Apartado</a></li>
+          <ng-template [ngIf]="authService.isAuthenticated()">
+            <li routerLinkActive="active" class="navbar-element"><a routerLink="/recipes">Catálogo</a></li>
+            <li routerLinkActive="active" class="navbar-element"><a routerLink="/shopping-list">Apartado</a></li>
+          </ng-template>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <ng-template [ngIf]="!authService.isAuthenticated()">
-              <li><a routerLink="/signup">Registro</a></li>
-              <li><a routerLink="/signin">Login</a></li>
+              <li><a class="sign" routerLink="/signup" style="color: white;">Registro</a></li>
+              <li><a class="sign" routerLink="/signin" style="color: white;">Login</a></li>
 
           </ng-template>
           <li><a 
