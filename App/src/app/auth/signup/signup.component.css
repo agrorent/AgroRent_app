@@ -1,0 +1,18 @@
+#signup-button {
+    background-color: #0CC749;
+    color: white;
+    margin-left: 40%;
+    width: 20%;
+    height: 45px;
+}
+
+#signup-button:hover {
+    background-color: white;
+    color: #0CC749;
+    border: 3px solid #0CC749;
+}
+
+#titulo {
+    text-align: center;
+    color: #0CC749;
+}
