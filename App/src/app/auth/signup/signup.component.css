@@ -16,3 +16,7 @@
     text-align: center;
     color: #0CC749;
 }
+
+.sign {
+    display: none;
+}

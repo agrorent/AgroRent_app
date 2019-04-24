@@ -16,3 +16,7 @@
     color: #0CC749;
     border: 3px solid #0CC749;
 }
+
+.sign {
+    display: none;
+}
