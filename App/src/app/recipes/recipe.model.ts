@@ -5,12 +5,14 @@ export class Tractor {
   public description: string;
   public imagePath: string;
   public caracteristicas: Caracteristica[];
+  //public status: string;
 
   constructor(names: string, desc: string, imaPath: string, ingredients: Caracteristica[] ) {
     this.name = names;
     this.description = desc;
     this.imagePath = imaPath;
     this.caracteristicas = ingredients;
+    //this.status = statuses;
   }
 
 }
