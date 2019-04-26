@@ -11,7 +11,28 @@ import { Subject } from 'rxjs';
 export class TractorService {
   TractoresChanged = new Subject<Tractor[]>();
 
-  private Tractores: Tractor[] = [];
+  private Tractores: Tractor[] = [
+      new Tractor(
+          'Prueba',
+          'Prueba del status',
+          // tslint:disable-next-line:max-line-length
+          'https://static.agcanada.com/wp-content/uploads/sites/4/2018/09/0e062cef-ecb3-42df-b508-264.jpg#_ga=2.242393218.1249500168.1554435505-46278877.1554435505',
+          [
+              new Caracteristica('Kilometros', 12000)
+          ],
+          'Libre'
+      ),
+    new Tractor(
+        'Prueba',
+        'Prueba del status',
+        // tslint:disable-next-line:max-line-length
+        'https://static.agcanada.com/wp-content/uploads/sites/4/2018/09/0e062cef-ecb3-42df-b508-264.jpg#_ga=2.242393218.1249500168.1554435505-46278877.1554435505',
+        [
+          new Caracteristica('Kilometros', 12000)
+        ],
+        'Libre'
+    )
+  ];
   constructor(private slService: ApartadoListService) {}
 
   setTractores(Tractores: Tractor[]) {

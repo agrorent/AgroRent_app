@@ -3,7 +3,3 @@ export class Caracteristica {
   }
 }
 
-export class NameTractor {
-  constructor(public nameTractor: string, public status: string) {
-  }
-}
