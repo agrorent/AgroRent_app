@@ -7,11 +7,11 @@ export class Tractor {
   public caracteristicas: Caracteristica[];
   public status: string;
 
-  constructor(names: string, desc: string, imaPath: string, caracteristicas: Caracteristica[], statuses: string ) {
+  constructor(names: string, desc: string, imaPath: string, ingredients: Caracteristica[], statuses: string ) {
     this.name = names;
     this.description = desc;
     this.imagePath = imaPath;
-    this.caracteristicas = caracteristicas;
+    this.caracteristicas = ingredients;
     this.status = statuses;
   }
 
