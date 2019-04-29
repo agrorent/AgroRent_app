@@ -19,8 +19,8 @@ export class ApartadoComponent implements OnInit, OnDestroy {
     this.caracteristicas = this.slService.getCaracteristicas();
     this.subscription = this.slService.caracteristicasChanged
      .subscribe(
-      (ingredients: Caracteristica[]) => {
-        this.caracteristicas = ingredients;
+      (caracteristicas: Caracteristica[]) => {
+        this.caracteristicas = caracteristicas;
       }
       );
   }
