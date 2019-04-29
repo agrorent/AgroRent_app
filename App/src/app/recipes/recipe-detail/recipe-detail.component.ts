@@ -31,10 +31,6 @@ export class TractorDetailComponent implements OnInit {
     this.tractorService.addTractoresToApartado(this.tractor.caracteristicas);
   }
 
-  onAddToApartadoPrueba() {
-    this.tractorService.addTractoresToApartadoPrueba(this.tractor.apartados);
-  }
-
   onEditTractor() {
      this.router.navigate([ 'edit' ], {relativeTo: this.route});
     // this.router.navigate([ '../', this.id, 'edit' ], {relativeTo: this.route});

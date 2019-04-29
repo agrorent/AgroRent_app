@@ -1,4 +1,4 @@
-import { Caracteristica, Apartado } from '../shared/ingredient.module';
+import { Caracteristica } from '../shared/ingredient.module';
 import { Subject } from 'rxjs';
 
 export class ApartadoListService {
@@ -8,7 +8,9 @@ export class ApartadoListService {
     new Caracteristica('Kilometraje', 55780),
     new Caracteristica('Precio por Hectárea (MXN)', 1400)
   ];
-  private apartados: Apartado[];
+
+  //private NameTractor: ;
+
   getCaracteristicas() {
     return this.caracteristicas.slice();
   }
@@ -21,10 +23,6 @@ export class ApartadoListService {
   addCaracteristicas(caracteristicas: Caracteristica[]) {
     this.caracteristicas.push(...caracteristicas);
     this.caracteristicasChanged.next(this.caracteristicas.slice());
-  }
-
-  addCaracteristicasPrueba(apartados: Apartado[]) {
-    this.apartados.push(...apartados);
   }
 
   getCaracteristica(index: number) {

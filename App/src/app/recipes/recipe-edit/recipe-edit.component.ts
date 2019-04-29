@@ -22,7 +22,9 @@ export class TractorEditComponent implements OnInit {
     this.route.params
     .subscribe(
       (params: Params) => {
+// tslint:disable-next-line: no-string-literal
         this.id = +params['id'];
+// tslint:disable-next-line: no-string-literal
         this.editMode = params['id'] != null;
         this.initForm();
       }
@@ -52,7 +54,6 @@ export class TractorEditComponent implements OnInit {
   onCancel() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
-
   private initForm() {
     let tractorName = '';
     let tractorImagePath = '';
@@ -80,8 +81,11 @@ export class TractorEditComponent implements OnInit {
     }
 
     this.tractorForm = new FormGroup({
+// tslint:disable-next-line: object-literal-key-quotes
       'name': new FormControl(tractorName, Validators.required),
+// tslint:disable-next-line: object-literal-key-quotes
       'imagePath': new FormControl(tractorImagePath, Validators.required),
+// tslint:disable-next-line: object-literal-key-quotes
       'description': new FormControl(tractorDescription, Validators.required ),
       'caracteristicas': tractorCaracteristicas
     });
