@@ -10,7 +10,11 @@ export class Tractor {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   constructor(names: string, desc: string, imaPath: string, caracteristicas: Caracteristica[], statuses: string, apartados: Apartado[] ) {
+=======
+  constructor(names: string, desc: string, imaPath: string, ingredients: Caracteristica[], statuses: string ) {
+>>>>>>> parent of d3ffff81... Works apartado
 =======
   constructor(names: string, desc: string, imaPath: string, ingredients: Caracteristica[], statuses: string ) {
 >>>>>>> parent of d3ffff81... Works apartado
@@ -20,7 +24,7 @@ export class Tractor {
     this.name = names;
     this.description = desc;
     this.imagePath = imaPath;
-    this.caracteristicas = ingredients;
+    this.caracteristicas = caracteristicas;
     this.status = statuses;
     this.apartados = apartados;
   }
