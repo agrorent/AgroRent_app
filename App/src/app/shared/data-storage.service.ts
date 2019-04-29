@@ -14,8 +14,8 @@ export class DataStorageService {
 
   storeTractores() {
     const token = this.authService.getToken();
+      return this.http.put('https://agrorent-7f6fd.firebaseio.com/tractores.json?auth=' + token,
 
-    return this.http.put('https://agrorent-7f6fd.firebaseapp.com/tractores.json?auth=' + token,
                   this.recipeService.getTractores());
   }
 
