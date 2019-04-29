@@ -8,11 +8,15 @@ export class Tractor {
   public status: string;
   public apartados: Apartado[];
 
+<<<<<<< HEAD
   constructor(names: string, desc: string, imaPath: string, caracteristicas: Caracteristica[], statuses: string, apartados: Apartado[] ) {
+=======
+  constructor(names: string, desc: string, imaPath: string, ingredients: Caracteristica[], statuses: string ) {
+>>>>>>> parent of d3ffff81... Works apartado
     this.name = names;
     this.description = desc;
     this.imagePath = imaPath;
-    this.caracteristicas = caracteristicas;
+    this.caracteristicas = ingredients;
     this.status = statuses;
     this.apartados = apartados;
   }
