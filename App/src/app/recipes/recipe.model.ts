@@ -28,7 +28,6 @@ export class Tractor {
     this.name = names;
     this.description = desc;
     this.imagePath = imaPath;
-    this.caracteristicas = ingredients;
     this.status = statuses;
     this.apartados = apartados;
   }
