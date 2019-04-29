@@ -9,6 +9,8 @@
     margin-left: 40%;
     width: 20%;
     height: 45px;
+    font-size: 1em;
+    min-width: 110px;
 }
 
 #signin-button:hover {
