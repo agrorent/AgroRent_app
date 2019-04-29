@@ -5,7 +5,9 @@ export class Tractor {
   public description: string;
   public imagePath: string;
   public caracteristicas: Caracteristica[];
+
   public status: string;
+
 
   constructor(names: string, desc: string, imaPath: string, ingredients: Caracteristica[], statuses: string ) {
     this.name = names;
