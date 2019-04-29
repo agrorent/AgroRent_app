@@ -5,14 +5,14 @@ export class Tractor {
   public description: string;
   public imagePath: string;
   public caracteristicas: Caracteristica[];
-  public status: string;
+  public status: string
 
-  constructor(names: string, desc: string, imaPath: string, ingredients: Caracteristica[], statuses: string ) {
+  constructor(names: string, desc: string, imaPath: string, caracteristicas: Caracteristica[], status: string ) {
     this.name = names;
     this.description = desc;
     this.imagePath = imaPath;
-    this.caracteristicas = ingredients;
-    this.status = statuses;
+    this.caracteristicas = caracteristicas;
+    this.status = status;
   }
 
 }

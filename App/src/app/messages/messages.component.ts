@@ -25,8 +25,8 @@ export class MessagesComponent implements OnInit, OnDestroy {
   }
 
   onSinginError(msg:string) {
-    console.log('arrived ti ' + msg);
     this.lastMessage = msg;
+    console.log('arrived ti ' + msg);
   }
 
 }
