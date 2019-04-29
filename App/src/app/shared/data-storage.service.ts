@@ -14,7 +14,11 @@ export class DataStorageService {
 
   storeTractores() {
     const token = this.authService.getToken();
+<<<<<<< HEAD
     return this.http.put('https://agrorent-7f6fd.firebaseio.com/tractores.json?auth=' + token,
+=======
+    return this.http.put('https://agrorent-7f6fd.firebaseapp.com/tractores.json?auth=' + token,
+>>>>>>> parent of 56b3eaab... Its not working fine
                   this.recipeService.getTractores());
   }
 
