@@ -8,12 +8,16 @@ export class Tractor {
 
   public status: string;
 
+<<<<<<< HEAD
 
   constructor(names: string, desc: string, imaPath: string, ingredients: Caracteristica[], statuses: string ) {
+=======
+  constructor(names: string, desc: string, imaPath: string, caracteristicas: Caracteristica[], statuses: string ) {
+>>>>>>> parent of 860492ba... Revert "Works apartado"
     this.name = names;
     this.description = desc;
     this.imagePath = imaPath;
-    this.caracteristicas = ingredients;
+    this.caracteristicas = caracteristicas;
     this.status = statuses;
   }
 
