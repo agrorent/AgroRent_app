@@ -40,7 +40,7 @@ export class TractorEditComponent implements OnInit {
   }
 
   onAddCaracteristica() {
-    (<FormArray> this.tractorForm.get('caracteristicas')).push(
+    (<FormArray> this.tractorForm.get('ingredients')).push(
       new FormGroup({
         'name': new FormControl(null, Validators.required),
         'amount': new FormControl(null, [
@@ -58,19 +58,19 @@ export class TractorEditComponent implements OnInit {
     let tractorName = '';
     let tractorImagePath = '';
     let tractorDescription = '';
-    let tractorCaracteristicas = new FormArray([]);
+    let tractorIngredients = new FormArray([]);
 
     if (this.editMode) {
       const recipe = this.tractorService.getTractor(this.id);
       tractorName = recipe.name;
       tractorImagePath = recipe.imagePath;
       tractorDescription = recipe.description;
-      if (recipe['caracteristicas']) {
-        for (let caracteristica of recipe.caracteristicas) {
-          tractorCaracteristicas.push(
+      if (recipe['ingredients']) {
+        for (let ingredient of recipe.caracteristicas) {
+          tractorIngredients.push(
             new FormGroup({
-              'name': new FormControl(caracteristica.name, Validators.required),
-              'amount': new FormControl(caracteristica.amount, [
+              'name': new FormControl(ingredient.name, Validators.required),
+              'amount': new FormControl(ingredient.amount, [
                 Validators.required,
                 Validators.pattern(/^[1-9]+[0-9]*$/)
               ])
@@ -87,14 +87,14 @@ export class TractorEditComponent implements OnInit {
       'imagePath': new FormControl(tractorImagePath, Validators.required),
 // tslint:disable-next-line: object-literal-key-quotes
       'description': new FormControl(tractorDescription, Validators.required ),
-      'caracteristicas': tractorCaracteristicas
+      'ingredients': tractorIngredients
     });
   }
   onDeleteCaracteristica(index: number) {
-    (<FormArray>this.tractorForm.get('caracteristicas')).removeAt(index);
+    (<FormArray>this.tractorForm.get('ingredients')).removeAt(index);
   }
 
   getControls() {
-    return (<FormArray>this.tractorForm.get('caracteristicas')).controls;
+    return (<FormArray>this.tractorForm.get('ingredients')).controls;
   }
 }

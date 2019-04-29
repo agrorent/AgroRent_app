@@ -48,8 +48,8 @@ export class TractorService {
     return this.Tractores[index];
   }
 
-  addTractoresToApartado(caracteristicas: Caracteristica[]) {
-    this.slService.addCaracteristicas(caracteristicas);
+  addTractoresToApartado(ingredients: Caracteristica[]) {
+    this.slService.addCaracteristicas(ingredients);
   }
 
   addTractor(recipe: Tractor) {
