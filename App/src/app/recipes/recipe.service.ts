@@ -31,13 +31,10 @@ export class TractorService {
     this.slService.addCaracteristicas(ingredients);
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
   }
 
   addTractoresToApartadoPrueba(apartados: Apartado[]) {
     this.slService.addCaracteristicasPrueba(apartados);
-=======
->>>>>>> parent of d3ffff81... Works apartado
 =======
 >>>>>>> parent of d3ffff81... Works apartado
 =======
