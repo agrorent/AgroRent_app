@@ -66,11 +66,11 @@ export class TractorEditComponent implements OnInit {
       tractorImagePath = recipe.imagePath;
       tractorDescription = recipe.description;
       if (recipe['caracteristicas']) {
-        for (let ingredient of recipe.caracteristicas) {
+        for (let caracteristica of recipe.caracteristicas) {
           tractorCaracteristicas.push(
             new FormGroup({
-              'name': new FormControl(ingredient.name, Validators.required),
-              'amount': new FormControl(ingredient.amount, [
+              'name': new FormControl(caracteristica.name, Validators.required),
+              'amount': new FormControl(caracteristica.amount, [
                 Validators.required,
                 Validators.pattern(/^[1-9]+[0-9]*$/)
               ])

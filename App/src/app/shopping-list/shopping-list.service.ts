@@ -9,6 +9,8 @@ export class ApartadoListService {
     new Caracteristica('Precio por Hectárea (MXN)', 1400)
   ];
 
+  //private NameTractor: ;
+
   getCaracteristicas() {
     return this.caracteristicas.slice();
   }

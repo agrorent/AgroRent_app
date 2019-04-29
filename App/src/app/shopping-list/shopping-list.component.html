@@ -7,9 +7,9 @@
       <a
         class="list-group-item"
         style="..."
-        *ngFor="let ingredient of caracteristicas; let i = index"
+        *ngFor="let caracteristica of caracteristicas; let i = index"
         (click)="onEditItem(i)"
-      >{{ ingredient.name }} ({{ ingredient.amount }})</a>
+      >{{ caracteristica.name }} ({{ caracteristica.amount }})</a>
     </ul>
   </div>
 </div>
