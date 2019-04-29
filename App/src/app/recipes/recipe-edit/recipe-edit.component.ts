@@ -67,15 +67,9 @@ export class TractorEditComponent implements OnInit {
       tractorDescription = recipe.description;
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
       if (recipe['caracteristicas']) {
         for (let ingredient of recipe.caracteristicas) {
           tractorCaracteristicas.push(
-=======
-      if (recipe['ingredients']) {
-        for (let ingredient of recipe.caracteristicas) {
-          tractorIngredients.push(
->>>>>>> parent of d3ffff81... Works apartado
 =======
       if (recipe['ingredients']) {
         for (let ingredient of recipe.caracteristicas) {
