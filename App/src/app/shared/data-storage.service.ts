@@ -14,19 +14,19 @@ export class DataStorageService {
 
   storeTractores() {
     const token = this.authService.getToken();
-    return this.http.put('https://login-a2cf2.firebaseio.com/recipes.json?auth='+token,
+    return this.http.put('https://agrorent-7f6fd.firebaseapp.com/tractores.json?auth=' + token,
                   this.recipeService.getTractores());
   }
 
   getTractores() {
     const token = this.authService.getToken();
-    this.http.get('https://login-a2cf2.firebaseio.com/recipes.json?auth=' + token)
+    this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json?auth=' + token)
     .pipe(map(
       (response: Response) => {
         const tractores: Tractor[] = response.json();
         for (let tractor of tractores) {
           if (!tractor['caracteristicas']) {
-            console.log('tractor');
+            console.log('tractor' + tractor);
             tractor['caracteristicas'] = [];
           }
         }
@@ -36,13 +36,13 @@ export class DataStorageService {
     .subscribe(
       (recipes: Tractor[]) => {
         this.recipeService.setTractores(recipes);
-        console.log('manda recipes');
+        console.log('manda recipes' + recipes);
       }
     );
   }
 
     getTractoresStart() {
-        this.http.get('https://login-a2cf2.firebaseio.com/recipes.json')
+        this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json')
             .pipe(map(
                 (response: Response) => {
                     const tractores: Tractor[] = response.json();
