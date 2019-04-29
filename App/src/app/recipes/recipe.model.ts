@@ -9,11 +9,7 @@ export class Tractor {
   public apartados: Apartado[];
 
 <<<<<<< HEAD
-<<<<<<< HEAD
   constructor(names: string, desc: string, imaPath: string, caracteristicas: Caracteristica[], statuses: string, apartados: Apartado[] ) {
-=======
-  constructor(names: string, desc: string, imaPath: string, ingredients: Caracteristica[], statuses: string ) {
->>>>>>> parent of d3ffff81... Works apartado
 =======
   constructor(names: string, desc: string, imaPath: string, ingredients: Caracteristica[], statuses: string ) {
 >>>>>>> parent of d3ffff81... Works apartado
