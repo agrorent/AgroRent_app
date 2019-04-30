@@ -1,4 +1,4 @@
-import { Caracteristica } from '../shared/ingredient.module';
+import {Apartado, Caracteristica} from '../shared/ingredient.module';
 
 export class Tractor {
   public name: string;

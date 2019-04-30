@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Tractor } from './recipe.model';
-import { Caracteristica } from '../shared/ingredient.module';
+import { Caracteristica, Apartado } from '../shared/ingredient.module';
 import { ApartadoListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
 
@@ -50,6 +50,10 @@ export class TractorService {
 
   addTractoresToApartado(caracteristicas: Caracteristica[]) {
     this.slService.addCaracteristicas(caracteristicas);
+  }
+
+  addTractoresToApartadoPrueba(names: Apartado[]) {
+    this.slService.addCaracteristicasPrueba(names);
   }
 
   addTractor(recipe: Tractor) {
