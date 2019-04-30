@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -41,7 +44,7 @@ import { MessagesService } from './messages/messages.service';
     TractorEditComponent,
     SignupComponent,
     SigninComponent,
-    MessagesComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
