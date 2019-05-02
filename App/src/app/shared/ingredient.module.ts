@@ -3,3 +3,7 @@ export class Caracteristica {
   }
 }
 
+export class Apartado {
+  constructor(public name: string) {
+  }
+}
