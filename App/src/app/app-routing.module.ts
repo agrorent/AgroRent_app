@@ -10,6 +10,8 @@ import { SignupComponent} from './auth/signup/signup.component';
 import { SigninComponent} from './auth/signin/signin.component';
 import { AuthGuard } from './auth/auth-guard.service';
 import {ArrendadorComponent} from './arrendador/arrendador.component';
+import { ArrendatarioComponent } from "./arrendatario/arrendatario.component";
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
   { path: 'tractores', component: TractoresComponent, canActivate: [AuthGuard], children: [
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
   { path: 'apartado', component: ApartadoComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent},
   { path: 'signin', component: SigninComponent},
-  { path: 'arrendador', component: ArrendadorComponent }
+  { path: 'arrendador', component: ArrendadorComponent },
+  { path: 'arrendatario', component: ArrendatarioComponent }
 ];
 
 @NgModule({
