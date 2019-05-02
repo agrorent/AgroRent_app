@@ -12,13 +12,11 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  id: number;
-  editMode = false;
-  signup: Signup;
   signupForm: FormGroup;
+  id: number;
 
-  constructor(private authService: AuthService, private dataStorageService: DataStorageService, 
-    private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private authService: AuthService, 
+              private router: Router) { }
 
     ngOnInit() {
       this.route.params
@@ -27,18 +25,17 @@ export class SignupComponent implements OnInit {
   // tslint:disable-next-line: no-string-literal
           this.id = +params['id'];
   // tslint:disable-next-line: no-string-literal
-          this.editMode = params['id'] != null;
           this.initForm();
         }
       );
     }
 
-   /* onSubmit() {
+    onSubmit() {
     
         this.authService.addSignup(this.signupForm.value);
     
    
-  }*/
+    }
 
   private initForm() {
     let signupName = '';
@@ -69,18 +66,18 @@ export class SignupComponent implements OnInit {
 
   onSignup(form: NgForm)
   {
-    this.authService.addSignup(this.signupForm.value);
+    
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signupUser(email, password);
   }
 
-  onSaveDataSignup()
+  /*onSaveDataSignup()
   {
     this. dataStorageService.storeSignups()
     .subscribe(); 
       console.log('guardo');
     
-  }
+  }*/
 
 }
