@@ -13,6 +13,7 @@ export class MessagesService {
     errorSingin(msg: string) {
         console.log('Mensaje   ' + msg);
         this.actualMessageComponent.onSinginError(msg);
+
     }
 
     subscribe(ms: MessagesComponent) {
