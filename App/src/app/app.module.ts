@@ -54,13 +54,13 @@ import { ArrendatarioItemComponent } from './arrendatario/arrendatario-list/arre
     SigninComponent,
     MessagesComponent,
     ArrendadorComponent,
-    ArrendadorDetailComponent,
     ArrendadorListComponent,
     ArrendadorItemComponent,
     ArrendatarioComponent,
     ArrendatarioDetailComponent,
     ArrendatarioListComponent,
-    ArrendatarioItemComponent
+    ArrendatarioItemComponent,
+    ArrendadorDetailComponent
   ],
   imports: [
     BrowserModule,
