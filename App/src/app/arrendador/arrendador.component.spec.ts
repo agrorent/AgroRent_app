@@ -10,7 +10,7 @@ describe('ArrendadorComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ArrendadorComponent ]
     })
-    .compileComponents();
+        .compileComponents();
   }));
 
   beforeEach(() => {

@@ -12,6 +12,7 @@ import { AuthGuard } from './auth/auth-guard.service';
 import {ArrendadorComponent} from './arrendador/arrendador.component';
 import { ArrendatarioComponent } from './arrendatario/arrendatario.component';
 import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arrendatario-edit.component';
+import {ArrendadorListComponent} from './arrendador/arrendador-list/arrendador-list.component';
 
 
 const appRoutes: Routes = [
