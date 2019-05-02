@@ -14,7 +14,7 @@ import {Apartado} from '../../shared/ingredient.module';
 export class TractorDetailComponent implements OnInit {
   tractor: Tractor;
   id: number;
-  apartados: Apartado[];
+  apartado: Apartado;
 
   constructor(private tractorService: TractorService,
               private route: ActivatedRoute,
@@ -29,12 +29,16 @@ export class TractorDetailComponent implements OnInit {
       }
     );
   }
+
   onAddToApartado() {
     this.tractorService.addTractoresToApartado(this.tractor.caracteristicas);
   }
 
   onAddToApartadoPrueba() {
-    this.tractorService.addTractoresToApartadoPrueba(this.apartados);
+
+    console.log(this.tractor.name + " // " + this.tractor.status );
+    this.apartado = (new Apartado(this.tractor.name, this.tractor.status ));
+    this.tractorService.addTractoresToApartadoPrueba( this.apartado);
   }
 
   onEditTractor() {
