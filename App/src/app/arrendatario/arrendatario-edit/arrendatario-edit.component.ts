@@ -57,6 +57,7 @@ export class ArrendatarioEditComponent implements OnInit {
     let tractorName = '';
     let tractorImagePath = '';
     let tractorDescription = '';
+    let tractorStatuses = '';
     let tractorCaracteristicas = new FormArray([]);
 
     if (this.editMode) {
@@ -64,6 +65,7 @@ export class ArrendatarioEditComponent implements OnInit {
       tractorName = recipe.name;
       tractorImagePath = recipe.imagePath;
       tractorDescription = recipe.description;
+      tractorStatuses = recipe.status;
       if (recipe['caracteristicas']) {
         for (let caracteristica of recipe.caracteristicas) {
           tractorCaracteristicas.push(
@@ -86,6 +88,7 @@ export class ArrendatarioEditComponent implements OnInit {
       'imagePath': new FormControl(tractorImagePath, Validators.required),
 // tslint:disable-next-line: object-literal-key-quotes
       'description': new FormControl(tractorDescription, Validators.required ),
+      'status': new FormControl(tractorStatuses, Validators.required ),
       'caracteristicas': tractorCaracteristicas
     });
   }
