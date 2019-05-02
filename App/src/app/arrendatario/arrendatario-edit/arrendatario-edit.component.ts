@@ -33,6 +33,7 @@ export class ArrendatarioEditComponent implements OnInit {
       this.tractorService.updateTractor(this.id, this.tractorForm.value);
     } else {
       this.tractorService.addTractor(this.tractorForm.value);
+      console.log(this.tractorForm.value);
     }
     this.onCancel();
   }
