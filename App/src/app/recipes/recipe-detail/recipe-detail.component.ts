@@ -43,6 +43,6 @@ export class TractorDetailComponent implements OnInit {
   }
   onDeleteTractor() {
     this.tractorService.deleteTractor(this.id);
-    this.router.navigate(['/recipes']);
+    this.router.navigate(['/tractores']);
   }
 }
