@@ -3,7 +3,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Tractor } from '../recipe.model';
 import { TractorService } from '../recipe.service';
-import {Apartado} from '../../shared/ingredient.module';
 
 
 @Component({
@@ -14,7 +13,6 @@ import {Apartado} from '../../shared/ingredient.module';
 export class TractorDetailComponent implements OnInit {
   tractor: Tractor;
   id: number;
-  apartados: Apartado[];
 
   constructor(private tractorService: TractorService,
               private route: ActivatedRoute,
@@ -33,16 +31,12 @@ export class TractorDetailComponent implements OnInit {
     this.tractorService.addTractoresToApartado(this.tractor.caracteristicas);
   }
 
-  onAddToApartadoPrueba() {
-    this.tractorService.addTractoresToApartadoPrueba(this.apartados);
-  }
-
   onEditTractor() {
      this.router.navigate([ 'edit' ], {relativeTo: this.route});
     // this.router.navigate([ '../', this.id, 'edit' ], {relativeTo: this.route});
   }
   onDeleteTractor() {
     this.tractorService.deleteTractor(this.id);
-    this.router.navigate(['/tractores']);
+    this.router.navigate(['/recipes']);
   }
 }
