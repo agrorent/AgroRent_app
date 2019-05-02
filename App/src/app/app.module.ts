@@ -28,6 +28,10 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessagesService } from './messages/messages.service';
+import { ArrendadorComponent } from './arrendador/arrendador.component';
+import { ArrendadorDetailComponent } from './arrendador/arrendador-detail/arrendador-detail.component';
+import { ArrendadorListComponent } from './arrendador/arrendador-list/arrendador-list.component';
+import { ArrendadorItemComponent } from './arrendador/arrendador-list/arrendador-item/arrendador-item.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,11 @@ import { MessagesService } from './messages/messages.service';
     TractorEditComponent,
     SignupComponent,
     SigninComponent,
-    MessagesComponent
+    MessagesComponent,
+    ArrendadorComponent,
+    ArrendadorDetailComponent,
+    ArrendadorListComponent,
+    ArrendadorItemComponent
   ],
   imports: [
     BrowserModule,
