@@ -4,6 +4,6 @@ export class Caracteristica {
 }
 
 export class Apartado {
-  constructor(public name: string) {
+  constructor(public name: string, public status: string) {
   }
 }

@@ -8,14 +8,17 @@ export class ApartadoListService {
     new Caracteristica('Kilometraje', 55780),
     new Caracteristica('Precio por Hectárea (MXN)', 1400)
   ];
-  private apartados: Apartado[];
+  private apartados: Apartado[] = [];
 
   //private NameTractor: ;
 
   getCaracteristicas() {
     return this.caracteristicas.slice();
   }
+  getApartados() {
 
+    return this.apartados.slice();
+  }
   addCaracteristica(caracteristica: Caracteristica) {
     this.caracteristicas.push(caracteristica);
     this.caracteristicasChanged.next(this.caracteristicas.slice());
@@ -26,8 +29,8 @@ export class ApartadoListService {
     this.caracteristicasChanged.next(this.caracteristicas.slice());
   }
 
-  addCaracteristicasPrueba(names: Apartado[]) {
-    this.apartados.push(...names);
+  addCaracteristicasPrueba(t: Apartado) {
+    this.apartados.push(t);
   }
 
   getCaracteristica(index: number) {

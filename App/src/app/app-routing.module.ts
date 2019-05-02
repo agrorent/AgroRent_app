@@ -10,7 +10,8 @@ import { SignupComponent} from './auth/signup/signup.component';
 import { SigninComponent} from './auth/signin/signin.component';
 import { AuthGuard } from './auth/auth-guard.service';
 import {ArrendadorComponent} from './arrendador/arrendador.component';
-import { ArrendatarioComponent } from "./arrendatario/arrendatario.component";
+import { ArrendatarioComponent } from './arrendatario/arrendatario.component';
+import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arrendatario-edit.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -24,7 +25,9 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'signin', component: SigninComponent},
   { path: 'arrendador', component: ArrendadorComponent },
-  { path: 'arrendatario', component: ArrendatarioComponent }
+  { path: 'arrendatario', component: ArrendatarioComponent, children: [
+      {path: 'new', component: ArrendatarioEditComponent}
+    ] }
 ];
 
 @NgModule({

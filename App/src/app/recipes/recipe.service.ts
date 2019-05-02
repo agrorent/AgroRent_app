@@ -52,8 +52,8 @@ export class TractorService {
     this.slService.addCaracteristicas(caracteristicas);
   }
 
-  addTractoresToApartadoPrueba(names: Apartado[]) {
-    this.slService.addCaracteristicasPrueba(names);
+  addTractoresToApartadoPrueba(apartado: Apartado) {
+    this.slService.addCaracteristicasPrueba(apartado);
   }
 
   addTractor(recipe: Tractor) {
