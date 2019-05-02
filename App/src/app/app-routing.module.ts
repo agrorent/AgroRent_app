@@ -11,13 +11,13 @@ import { SigninComponent} from './auth/signin/signin.component';
 import { AuthGuard } from './auth/auth-guard.service';
 const appRoutes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
-  { path: 'recipes', component: TractoresComponent, canActivate: [AuthGuard], children: [
+  { path: 'tractores', component: TractoresComponent, canActivate: [AuthGuard], children: [
     { path: '', component: TractorStartComponent },
     { path: 'new', component: TractorEditComponent},
     { path: ':id', component: TractorDetailComponent },
     { path: ':id/edit', component: TractorEditComponent }
   ] },
-  { path: 'shopping-list', component: ApartadoComponent, canActivate: [AuthGuard] },
+  { path: 'apartado', component: ApartadoComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent},
   { path: 'signin', component: SigninComponent},
 ];
