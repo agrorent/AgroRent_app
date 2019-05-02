@@ -88,7 +88,7 @@ export class ArrendatarioEditComponent implements OnInit {
       'imagePath': new FormControl(tractorImagePath, Validators.required),
 // tslint:disable-next-line: object-literal-key-quotes
       'description': new FormControl(tractorDescription, Validators.required ),
-      'statuses': new FormControl(tractorStatuses, Validators.required ),
+      'status': new FormControl(tractorStatuses, Validators.required ),
       'caracteristicas': tractorCaracteristicas
     });
   }

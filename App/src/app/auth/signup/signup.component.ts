@@ -12,33 +12,30 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  id: number;
-  editMode = false;
-  signup: Signup;
   signupForm: FormGroup;
+  id: number;
 
-  constructor(private authService: AuthService, private dataStorageService: DataStorageService, 
-    private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private authService: AuthService,
+              private router: Router) { }
 
-    ngOnInit() {
-      this.route.params
-      .subscribe(
-        (params: Params) => {
-  // tslint:disable-next-line: no-string-literal
-          this.id = +params['id'];
-  // tslint:disable-next-line: no-string-literal
-          this.editMode = params['id'] != null;
-          this.initForm();
-        }
-      );
-    }
+  ngOnInit() {
+    this.route.params
+        .subscribe(
+            (params: Params) => {
+              // tslint:disable-next-line: no-string-literal
+              this.id = +params['id'];
+              // tslint:disable-next-line: no-string-literal
+              this.initForm();
+            }
+        );
+  }
 
-   /* onSubmit() {
-    
-        this.authService.addSignup(this.signupForm.value);
-    
-   
-  }*/
+  onSubmit() {
+
+    this.authService.addSignup(this.signupForm.value);
+
+
+  }
 
   private initForm() {
     let signupName = '';
@@ -48,7 +45,7 @@ export class SignupComponent implements OnInit {
     let signupMail = '';
     let signupPassword = '';
     let signupType = '';
-    
+
 
     this.signupForm = new FormGroup({
 // tslint:disable-next-line: object-literal-key-quotes
@@ -59,28 +56,28 @@ export class SignupComponent implements OnInit {
       'localidad': new FormControl(signupLocalidad, Validators.required ),
       'number': new FormControl(signupNumber, Validators.required),
       // tslint:disable-next-line: object-literal-key-quotes
-            'mail': new FormControl(signupMail, Validators.required),
+      'mail': new FormControl(signupMail, Validators.required),
       // tslint:disable-next-line: object-literal-key-quotes
-            'password': new FormControl(signupPassword, Validators.required ),
-            'type': new FormControl(signupType, Validators.required )
-      
+      'password': new FormControl(signupPassword, Validators.required ),
+      'type': new FormControl(signupType, Validators.required )
+
     });
   }
 
   onSignup(form: NgForm)
   {
-    this.authService.addSignup(this.signupForm.value);
+
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signupUser(email, password);
   }
 
-  onSaveDataSignup()
+  /*onSaveDataSignup()
   {
     this. dataStorageService.storeSignups()
-    .subscribe(); 
+    .subscribe();
       console.log('guardo');
-    
-  }
+
+  }*/
 
 }

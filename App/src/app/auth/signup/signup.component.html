@@ -1,24 +1,25 @@
+<hr><hr>
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12">
-    <form form [formGroup]="signupForm" (ngSubmit)="onSignup(f)" #f="ngForm"  style="width: 50%; margin: auto; margin-top: 80px;">
-      <h1 id="titulo">Registrate</h1>
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form (ngSubmit)="onSignup(f)" #f="ngForm">
       <div class="form-group">
         <label for="name">Nombre</label>
-             <input type="text" id="name" formControlName="name" ngModel class="form-control" placeholder="Juan" required="required"> 
+        <input type="text" id="name" placeholder="Juan" required="required" class="form-control">
       </div>
       <div class="form-group">
         <label for="lastname">Apellidos</label>
-        <input type="text" id="lastname" formControlName="lastname" ngModel class="form-control" placeholder="Escutia" required="required">
+        <input type="text" id="lastname"  placeholder="Escutia" required="required" class="form-control">
       </div>
       <div class="form-group">
         <label for="localidad">Localidad</label>
-        <input type="text" id="localidad" formControlName="localidad" ngModel class="form-control"
-               placeholder="Atlacomulco, Estado de México" required="required">
+        <input type="text" id="localidad"
+               placeholder="Atlacomulco, Estado de México" required="required" class="form-control">
       </div>
+
       <div class="form-group">
         <label for="number">Teléfono</label>
-        <input type="number" id="number" formControlName="number" ngModel
-               class="form-control input-medium bfh-phone"
+        <input type="number" id="number"
+               class="form-control"
                data-country="MX"
                placeholder="7225738901"
                maxlength="10"
@@ -28,21 +29,27 @@
         >
       </div>
       <div class="form-group">
-        <label for="mail">Mail</label>
-        <input type="mail" id="mail" formControlName="mail" ngModel class="form-control" placeholder="juan.escutia@gmail.com">
+        <label for="email">Mail</label>
+        <input type="email" id="email" name="email" ngModel class="form-control">
       </div>
       <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" formControlName="password" ngModel class="form-control" placeholder="********">
+        <label for="password">Password</label>
+        <input
+                type="password"
+                id="password"
+                name="password"
+                ngModel
+                class="form-control">
       </div>
       <div class="form-group">
         <label for="type">Selecciona el Tipo de Cuenta:</label>
-        <select formControlName="type" class="form-control" id="type">
+        <select  id="type" class="form-control">
           <option>Arrendador</option>
           <option>Arrendatario</option>
         </select>
       </div>
-      <button class="btn" id="signup-button" type="submit"  click="create(policy.name)" (click)="onSaveDataSignup()">Registrar</button>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Sign Up</button>
     </form>
   </div>
 </div>
