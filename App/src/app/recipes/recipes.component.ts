@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './recipes.component.html',
 })
 export class TractoresComponent implements OnInit {
+
+
   constructor() { }
 
   ngOnInit() {}

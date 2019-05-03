@@ -1,38 +1,15 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
-import { Tractor } from '../../recipes/recipe.model';
-import { TractorService } from '../recipe.service';
-
-import { Router, ActivatedRoute} from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-arrendador-list',
   templateUrl: './arrendador-list.component.html',
+  styleUrls: ['./arrendador-list.component.css']
 })
-export class ArrendadorListComponent implements OnInit, OnDestroy {
-  tractores: Tractor[] = [];
-  subscription: Subscription
+export class ArrendadorListComponent implements OnInit {
 
-  constructor(private recipeService: TractorService,
-              private router: Router,
-              private route: ActivatedRoute) {
-  }
+  constructor() { }
 
   ngOnInit() {
-    this.subscription = this.recipeService.TractoresChanged.
-    subscribe(
-        (recipes: Tractor[]) => {
-          this.tractores = recipes;
-        }
-    )
-    this.tractores = this.recipeService.getTractores();
   }
 
-  onNewTractor() {
-    this.router.navigate(['new'], { relativeTo: this.route });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
 }

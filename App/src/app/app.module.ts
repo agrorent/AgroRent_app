@@ -55,6 +55,7 @@ import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arre
     SigninComponent,
     MessagesComponent,
     ArrendadorComponent,
+    ArrendadorDetailComponent,
     ArrendadorListComponent,
     ArrendadorItemComponent,
     ArrendatarioComponent,
