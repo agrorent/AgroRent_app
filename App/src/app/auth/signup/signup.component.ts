@@ -17,70 +17,15 @@ export class SignupComponent implements OnInit {
   signup: Signup;
   signupForm: FormGroup;
 
-  constructor(private authService: AuthService, private dataStorageService: DataStorageService, 
-    private route: ActivatedRoute, private router: Router) { }
+  constructor(private authService: AuthService) { }
 
     ngOnInit() {
-      this.route.params
-      .subscribe(
-        (params: Params) => {
-  // tslint:disable-next-line: no-string-literal
-          this.id = +params['id'];
-  // tslint:disable-next-line: no-string-literal
-          this.editMode = params['id'] != null;
-          this.initForm();
-        }
-      );
     }
 
-   /* onSubmit() {
-    
-        this.authService.addSignup(this.signupForm.value);
-    
-   
-  }*/
-
-  private initForm() {
-    let signupName = '';
-    let signupLastname = '';
-    let signupLocalidad = '';
-    let signupNumber = '';
-    let signupMail = '';
-    let signupPassword = '';
-    let signupType = '';
-    
-
-    this.signupForm = new FormGroup({
-// tslint:disable-next-line: object-literal-key-quotes
-      'name': new FormControl(signupName, Validators.required),
-// tslint:disable-next-line: object-literal-key-quotes
-      'lastname': new FormControl(signupLastname, Validators.required),
-// tslint:disable-next-line: object-literal-key-quotes
-      'localidad': new FormControl(signupLocalidad, Validators.required ),
-      'number': new FormControl(signupNumber, Validators.required),
-      // tslint:disable-next-line: object-literal-key-quotes
-            'mail': new FormControl(signupMail, Validators.required),
-      // tslint:disable-next-line: object-literal-key-quotes
-            'password': new FormControl(signupPassword, Validators.required ),
-            'type': new FormControl(signupType, Validators.required )
-      
-    });
-  }
-
-  onSignup(form: NgForm)
-  {
-    this.authService.addSignup(this.signupForm.value);
+  onSignup(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signupUser(email, password);
-  }
-
-  onSaveDataSignup()
-  {
-    this. dataStorageService.storeSignups()
-    .subscribe(); 
-      console.log('guardo');
-    
   }
 
 }

@@ -5,9 +5,8 @@ export class Signup {
   public localidad: string;
   public number: number;
   public mail: string;
-  public password: string; 
+  public password: string;
   public type: string;
- 
 
   constructor(nombre: string, apellido: string, local: string, numero: number, correo: string, contraseña: string, tipo: string ) {
     this.name = nombre;
@@ -17,7 +16,5 @@ export class Signup {
     this.mail = correo;
     this.password = contraseña;
     this.type = tipo;
-   
   }
-
 }

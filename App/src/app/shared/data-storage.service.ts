@@ -18,13 +18,6 @@ export class DataStorageService {
 
                   this.recipeService.getTractores());
   }
-
-  storeSignups() {
-    console.log('guardox2');
-    return this.http.put('https://agrorent-7f6fd.firebaseio.com/signup.json',
-                  this.authService.getSignups());
-  }
-
   getTractores() {
     const token = this.authService.getToken();
     this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json?auth=' + token)

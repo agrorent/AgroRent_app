@@ -55,8 +55,10 @@ export class TractorEditComponent implements OnInit {
   }
   private initForm() {
     let tractorName = '';
+    let tractorPrecio;
     let tractorImagePath = '';
     let tractorDescription = '';
+    let tractorStatus = '';
     let tractorCaracteristicas = new FormArray([]);
 
     if (this.editMode) {
@@ -64,6 +66,8 @@ export class TractorEditComponent implements OnInit {
       tractorName = recipe.name;
       tractorImagePath = recipe.imagePath;
       tractorDescription = recipe.description;
+      tractorPrecio = recipe.precio;
+      tractorStatus = recipe.status;
       if (recipe['caracteristicas']) {
         for (let caracteristica of recipe.caracteristicas) {
           tractorCaracteristicas.push(
@@ -80,12 +84,12 @@ export class TractorEditComponent implements OnInit {
     }
 
     this.tractorForm = new FormGroup({
-// tslint:disable-next-line: object-literal-key-quotes
+
       'name': new FormControl(tractorName, Validators.required),
-// tslint:disable-next-line: object-literal-key-quotes
+      'precio': new FormControl(tractorPrecio, Validators.required ),
       'imagePath': new FormControl(tractorImagePath, Validators.required),
-// tslint:disable-next-line: object-literal-key-quotes
       'description': new FormControl(tractorDescription, Validators.required ),
+      'status': new FormControl(tractorStatus, Validators.required ),
       'caracteristicas': tractorCaracteristicas
     });
   }
