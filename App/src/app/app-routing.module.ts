@@ -9,17 +9,25 @@ import { TractorEditComponent } from './recipes/recipe-edit/recipe-edit.componen
 import { SignupComponent} from './auth/signup/signup.component';
 import { SigninComponent} from './auth/signin/signin.component';
 import { AuthGuard } from './auth/auth-guard.service';
+import {ArrendadorComponent} from './arrendador/arrendador.component';
+import { ArrendatarioComponent } from './arrendatario/arrendatario.component';
+import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arrendatario-edit.component';
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
-  { path: 'recipes', component: TractoresComponent, canActivate: [AuthGuard], children: [
+  { path: 'tractores', component: TractoresComponent, canActivate: [AuthGuard], children: [
     { path: '', component: TractorStartComponent },
     { path: 'new', component: TractorEditComponent},
     { path: ':id', component: TractorDetailComponent },
     { path: ':id/edit', component: TractorEditComponent }
   ] },
-  { path: 'shopping-list', component: ApartadoComponent, canActivate: [AuthGuard] },
+  { path: 'apartado', component: ApartadoComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent},
   { path: 'signin', component: SigninComponent},
+  { path: 'arrendador', component: ArrendadorComponent },
+  { path: 'arrendatario', component: ArrendatarioComponent, children: [
+      {path: 'new', component: ArrendatarioEditComponent}
+    ] }
 ];
 
 @NgModule({
