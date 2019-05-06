@@ -62,14 +62,14 @@ export class TractorEditComponent implements OnInit {
     let tractorCaracteristicas = new FormArray([]);
 
     if (this.editMode) {
-      const recipe = this.tractorService.getTractor(this.id);
-      tractorName = recipe.name;
-      tractorImagePath = recipe.imagePath;
-      tractorDescription = recipe.description;
-      tractorPrecio = recipe.precio;
-      tractorStatus = recipe.status;
-      if (recipe['caracteristicas']) {
-        for (let caracteristica of recipe.caracteristicas) {
+      const tractor = this.tractorService.getTractor(this.id);
+      tractorName = tractor.name;
+      tractorImagePath = tractor.imagePath;
+      tractorDescription = tractor.description;
+      tractorPrecio = tractor.precio;
+      tractorStatus = tractor.status;
+      if (tractor['caracteristicas']) {
+        for (let caracteristica of tractor.caracteristicas) {
           tractorCaracteristicas.push(
             new FormGroup({
               'name': new FormControl(caracteristica.name, Validators.required),

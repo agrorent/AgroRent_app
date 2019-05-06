@@ -95,6 +95,7 @@ export class ArrendatarioEditComponent implements OnInit {
       'status': new FormControl(tractorStatus, Validators.required ),
       'caracteristicas': tractorCaracteristicas
     });
+    console.log(this.tractorForm.value);
   }
 
   onDeleteCaracteristica(index: number) {

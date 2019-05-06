@@ -4,6 +4,7 @@ import { Tractor } from './recipe.model';
 import { Caracteristica, Apartado } from '../shared/ingredient.module';
 import { ApartadoListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
+import { Signup } from '../auth/signup/signup.model';
 
 @Injectable()
 
@@ -12,6 +13,8 @@ export class TractorService {
   TractoresChanged = new Subject<Tractor[]>();
 
   private Tractores: Tractor[] = [];
+  private Usuarios: Signup[] = [];
+
   constructor(private slService: ApartadoListService) {}
 
   setTractores(Tractores: Tractor[]) {
@@ -21,6 +24,10 @@ export class TractorService {
 
   getTractores() {
     return this.Tractores.slice(); // We get a copy of the array whit slice
+  }
+
+  getUsuarios(index: number) {
+    return this.Usuarios[index]; // We get a copy of the array whit slice
   }
 
   getTractor(index: number) {

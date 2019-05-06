@@ -1,6 +1,21 @@
-<div class="row" style="margin-top: 100px;">
-  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+ <div style="margin-top: 100px;" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
     <form (ngSubmit)="onSignup(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="fName">Nombre</label>
+        <input type="text" id="fName" name="fName" ngModel class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="lName">Apellido</label>
+        <input type="text" id="lName" name="lName" ngModel class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="localidad">Localidad</label>
+        <input type="text" id="localidad" name="localidad" ngModel class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="numeroTel">Numero telefonico</label>
+        <input type="number" id="numeroTel" name="numeroTel" ngModel class="form-control">
+      </div>
       <div class="form-group">
         <label for="email">Mail</label>
         <input type="email" id="email" name="email" ngModel class="form-control">
@@ -14,8 +29,12 @@
                 ngModel
                 class="form-control">
       </div>
+      <div class="form-group">
+        <label for="type">Tipo de cuenta</label>
+        <input type="text" id="type" name="type" ngModel class="form-control">
+      </div>
       <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Sign Up</button>
     </form>
   </div>
-</div>
+
 
