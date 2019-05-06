@@ -14,9 +14,15 @@ export class DataStorageService {
 
   storeTractores() {
     const token = this.authService.getToken();
-      return this.http.put('https://agrorent-7f6fd.firebaseio.com/tractores.json?auth=' + token,
+    return this.http.put('https://agrorent-7f6fd.firebaseio.com/tractores.json?auth=' + token,
+        this.recipeService.getTractores());
+  }
 
-                  this.recipeService.getTractores());
+  storeUsuarios() {
+      return this.http.put('https://agrorent-7f6fd.firebaseio.com/usuarios.json',
+
+            this.recipeService.getUsuarios());
+      console.log('pide usuarios?');
   }
   getTractores() {
     const token = this.authService.getToken();

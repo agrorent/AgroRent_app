@@ -1,4 +1,4 @@
-export class Signup {
+export class Usuarios {
   public fName: string;
   public lName: string;
   public localidad: string;

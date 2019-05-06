@@ -1,14 +1,10 @@
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import {Signup} from '../auth/signup/signup.model';
-import {Subject} from 'rxjs';
-@Injectable()
-export class AuthService{
-    SignupChanged = new Subject<Signup[]>();
-    token: string;
-    private Signups: Signup[] =[];
 
+@Injectable()
+export class AuthService {
+    token: string;
     constructor(private router: Router) {}
     signupUser(email: string, password: string){
         firebase.auth().createUserWithEmailAndPassword(email, password)
