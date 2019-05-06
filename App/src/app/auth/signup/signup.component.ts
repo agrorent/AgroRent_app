@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import {Usuarios} from 'src/app/auth/signup/signup.model';
 import {Response} from '@angular/http';
 import {DataStorageService} from '../../shared/data-storage.service';
+import {TractorService} from '../../recipes/recipe.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class SignupComponent implements OnInit {
    private Usuario: Usuarios[] = [];
 
   constructor(private authService: AuthService,
-              private dataStorageService: DataStorageService) { }
+              private dataStorageService: DataStorageService,
+              private tractorService: TractorService) { }
 
     ngOnInit() {
     }
@@ -33,9 +35,8 @@ export class SignupComponent implements OnInit {
     const tipoUsuario = form.value.type;
 
     this.authService.signupUser(email, password);
-
     this.Usuario.push(fNameUsuario, lNameUsuario, localidadUsuario, telUsuario, email, tipoUsuario);
-
+    this.tractorService.addUsuario(this.Usuario);
     console.log(this.Usuario);
 
     this.dataStorageService.storeUsuarios().subscribe(

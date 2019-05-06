@@ -47,6 +47,11 @@ export class TractorService {
     this.TractoresChanged.next(this.Tractores.slice());
   }
 
+  addUsuario(usuario: Usuarios[]) {
+    // @ts-ignore
+    this.Usuarios.push(usuario);
+  }
+
   updateTractor(index: number, newRecipe: Tractor) {
     this.Tractores[index] = newRecipe;
     this.TractoresChanged.next(this.Tractores.slice());

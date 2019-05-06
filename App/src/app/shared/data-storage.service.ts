@@ -22,7 +22,6 @@ export class DataStorageService {
       return this.http.put('https://agrorent-7f6fd.firebaseio.com/usuarios.json',
 
             this.recipeService.getUsuarios());
-      console.log('pide usuarios?');
   }
   getTractores() {
     const token = this.authService.getToken();
