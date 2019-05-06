@@ -50,30 +50,10 @@ export class AuthService{
          .then(
             (token: string) => this.token = token
         );
-        return this.token;
+         return this.token;
     }
 
     isAuthenticated() {
         return this.token != null;
     }
-
-    setSignups(Signups: Signup[]) { 
-        console.log('set');
-        this.Signups = Signups;
-        this.SignupChanged.next(this.Signups.slice());
-      }
-    
-      getSignups() {
-        console.log('get1');
-        return this.Signups.slice(); // We get a copy of the array whit slice
-      }
-    
-      getSignup(index: number) {
-        console.log('get2');
-        return this.Signups[index];
-      }
-      addSignup(sign: Signup) {
-        this.Signups.push(sign);
-        this.SignupChanged.next(this.Signups.slice());
-      }
 }

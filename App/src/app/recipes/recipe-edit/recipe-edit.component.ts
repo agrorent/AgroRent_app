@@ -55,17 +55,21 @@ export class TractorEditComponent implements OnInit {
   }
   private initForm() {
     let tractorName = '';
+    let tractorPrecio;
     let tractorImagePath = '';
     let tractorDescription = '';
+    let tractorStatus = '';
     let tractorCaracteristicas = new FormArray([]);
 
     if (this.editMode) {
-      const recipe = this.tractorService.getTractor(this.id);
-      tractorName = recipe.name;
-      tractorImagePath = recipe.imagePath;
-      tractorDescription = recipe.description;
-      if (recipe['caracteristicas']) {
-        for (let caracteristica of recipe.caracteristicas) {
+      const tractor = this.tractorService.getTractor(this.id);
+      tractorName = tractor.name;
+      tractorImagePath = tractor.imagePath;
+      tractorDescription = tractor.description;
+      tractorPrecio = tractor.precio;
+      tractorStatus = tractor.status;
+      if (tractor['caracteristicas']) {
+        for (let caracteristica of tractor.caracteristicas) {
           tractorCaracteristicas.push(
             new FormGroup({
               'name': new FormControl(caracteristica.name, Validators.required),
@@ -80,12 +84,12 @@ export class TractorEditComponent implements OnInit {
     }
 
     this.tractorForm = new FormGroup({
-// tslint:disable-next-line: object-literal-key-quotes
+
       'name': new FormControl(tractorName, Validators.required),
-// tslint:disable-next-line: object-literal-key-quotes
+      'precio': new FormControl(tractorPrecio, Validators.required ),
       'imagePath': new FormControl(tractorImagePath, Validators.required),
-// tslint:disable-next-line: object-literal-key-quotes
       'description': new FormControl(tractorDescription, Validators.required ),
+      'status': new FormControl(tractorStatus, Validators.required ),
       'caracteristicas': tractorCaracteristicas
     });
   }
