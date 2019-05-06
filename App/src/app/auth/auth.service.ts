@@ -1,14 +1,10 @@
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import {Signup} from '../auth/signup/signup.model';
-import {Subject} from 'rxjs';
-@Injectable()
-export class AuthService{
-    SignupChanged = new Subject<Signup[]>();
-    token: string;
-    private Signups: Signup[] =[];
 
+@Injectable()
+export class AuthService {
+    token: string;
     constructor(private router: Router) {}
     signupUser(email: string, password: string){
         firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -22,7 +18,7 @@ export class AuthService{
         firebase.auth().signInWithEmailAndPassword(email, password)
         .then(
             response => {
-                this.router.navigate(['/recipes']);
+                this.router.navigate(['/tractores']);
                 firebase.auth().currentUser.getIdToken()
                 .then(
                     (token: string) => this.token = token
@@ -50,30 +46,10 @@ export class AuthService{
          .then(
             (token: string) => this.token = token
         );
-        return this.token;
+         return this.token;
     }
 
     isAuthenticated() {
         return this.token != null;
     }
-
-    setSignups(Signups: Signup[]) { 
-        console.log('set');
-        this.Signups = Signups;
-        this.SignupChanged.next(this.Signups.slice());
-      }
-    
-      getSignups() {
-        console.log('get1');
-        return this.Signups.slice(); // We get a copy of the array whit slice
-      }
-    
-      getSignup(index: number) {
-        console.log('get2');
-        return this.Signups[index];
-      }
-      addSignup(sign: Signup) {
-        this.Signups.push(sign);
-        this.SignupChanged.next(this.Signups.slice());
-      }
 }

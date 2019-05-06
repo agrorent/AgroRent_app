@@ -15,15 +15,14 @@ export class DataStorageService {
   storeTractores() {
     const token = this.authService.getToken();
     return this.http.put('https://agrorent-7f6fd.firebaseio.com/tractores.json?auth=' + token,
-                  this.recipeService.getTractores());
+        this.recipeService.getTractores());
   }
 
-  storeSignups() {
-    console.log('guardox2');
-    return this.http.put('https://agrorent-7f6fd.firebaseio.com/signup.json',
-                  this.authService.getSignups());
-  }
+  storeUsuarios() {
+      return this.http.put('https://agrorent-7f6fd.firebaseio.com/usuarios.json',
 
+            this.recipeService.getUsuarios());
+  }
   getTractores() {
     const token = this.authService.getToken();
     this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json?auth=' + token)
@@ -69,3 +68,4 @@ export class DataStorageService {
             );
     }
 }
+
