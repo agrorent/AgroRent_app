@@ -49,7 +49,7 @@ export class TractorService {
   }
 
   addTractoresToApartadoPrueba(apartado: Apartado) {
-    this.slService.addCaracteristicasPrueba(apartado);
+    this.slService.addApartadosPrueba(apartado);
   }
 
   addTractor(recipe: Tractor) {
