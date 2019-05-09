@@ -46,6 +46,26 @@ export class DataStorageService {
     );
   }
 
+<<<<<<< HEAD
+=======
+    getApartados() {
+        const token = this.authService.getToken();
+        this.http.get('https://agrorent-7f6fd.firebaseio.com/apartados.json?auth=' + token)
+            .pipe(map(
+                (response: Response) => {
+                    const apartados: Apartado[] = response.json();
+                    return apartados;
+                }
+            ))
+            .subscribe(
+                (apartados: Apartado[]) => {
+                    this.recipeService.setApartados(apartados);
+                    console.log('manda apartados');
+                }
+            );
+    }
+
+>>>>>>> parent of cbdb9798... Trying to get the info from apartados
     getTractoresStart() {
         this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json')
             .pipe(map(
