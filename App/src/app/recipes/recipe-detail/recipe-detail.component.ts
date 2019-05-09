@@ -35,8 +35,9 @@ export class TractorDetailComponent implements OnInit {
   }
 
   onAddToApartadoPrueba() {
-    console.log(this.tractor.name + " // " + this.tractor.description + " // " + this.tractor.imagePath + " // " + this.tractor.status + " // " + this.tractor.precio );
-    this.apartado = (new Apartado(this.tractor.name, this.tractor.description, this.tractor.imagePath, this.tractor.status = 'Apartado' , this.tractor.precio ));
+
+    console.log(this.tractor.name + " // " + this.tractor.status );
+    this.apartado = (new Apartado(this.tractor.name, this.tractor.status ));
     this.tractorService.addTractoresToApartadoPrueba( this.apartado);
   }
 
