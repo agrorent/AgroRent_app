@@ -13,12 +13,18 @@ export class TractorService {
 
   private Tractores: Tractor[] = [];
   private Usuarios: Usuarios[] = [];
+  private Apartados: Apartado[] = [];
 
   constructor(private slService: ApartadoListService) {}
 
   setTractores(Tractores: Tractor[]) {
     this.Tractores = Tractores;
     this.TractoresChanged.next(this.Tractores.slice());
+  }
+
+  setApartados(Apartados: Apartado[]) {
+    this.Apartados = Apartados;
+
   }
 
   getTractores() {

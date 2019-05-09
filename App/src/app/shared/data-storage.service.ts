@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 
 import { TractorService } from '../recipes/recipe.service';
 import { Tractor } from '../recipes/recipe.model';
 import { AuthService } from '../auth/auth.service';
+import { Apartado } from './ingredient.module';
 
 
 @Injectable()
@@ -46,8 +47,6 @@ export class DataStorageService {
     );
   }
 
-<<<<<<< HEAD
-=======
     getApartados() {
         const token = this.authService.getToken();
         this.http.get('https://agrorent-7f6fd.firebaseio.com/apartados.json?auth=' + token)
@@ -65,7 +64,6 @@ export class DataStorageService {
             );
     }
 
->>>>>>> parent of cbdb9798... Trying to get the info from apartados
     getTractoresStart() {
         this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json')
             .pipe(map(
