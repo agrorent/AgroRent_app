@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Caracteristica, Apartado} from '../shared/ingredient.module';
 import { ApartadoListService } from './shopping-list.service';
 import { DataStorageService } from '../shared/data-storage.service';
+import {TractorService} from '../recipes/recipe.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -14,13 +15,11 @@ export class ApartadoComponent implements OnInit {
   apartados: Apartado[];
 
   constructor(private slService: ApartadoListService,
+              private tractorService: TractorService,
               private dataStorageService: DataStorageService) {
 
   }
   ngOnInit() {
-
-    // @ts-ignore
-    this.apartados = this.dataStorageService.getApartados();
-    this.dataStorageService.getApartados();
+    this.apartados = this.tractorService.getApartados();
   }
 }

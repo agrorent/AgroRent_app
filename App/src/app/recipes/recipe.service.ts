@@ -32,8 +32,9 @@ export class TractorService {
   }
 
   getApartados() {
+    console.log('Llega a getApartados?');
     return this.Apartados.slice(); // We get a copy of the array whit slice
-    console.log(this.Apartados);
+
   }
 
   getUsuarios() {

@@ -65,7 +65,7 @@ export class DataStorageService {
             .subscribe(
                 (apartados: Apartado[]) => {
                     this.recipeService.setApartados(apartados);
-                    console.log('manda apartados');
+                    console.log('obtengo apartados');
                 }
             );
     }

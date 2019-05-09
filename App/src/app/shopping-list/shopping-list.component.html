@@ -8,7 +8,6 @@
         class="list-group-item"
         style="..."
         *ngFor="let apartado of apartados; let i = index"
-        (click)="onEditItem(i)"
       >{{ apartado.name }}  {{ apartado.description }} {{ apartado.imagePath }} {{ apartado.status }} {{ apartado.precio }}</a>
     </ul>
   </div>
