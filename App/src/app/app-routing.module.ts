@@ -9,8 +9,7 @@ import { TractorEditComponent } from './recipes/recipe-edit/recipe-edit.componen
 import { SignupComponent} from './auth/signup/signup.component';
 import { SigninComponent} from './auth/signin/signin.component';
 import { AuthGuard } from './auth/auth-guard.service';
-import { ArrendadorComponent } from './arrendador/arrendador.component';
-import { ArrendadorDetailComponent } from './arrendador/arrendador-detail/arrendador-detail.component';
+import {ArrendadorComponent} from './arrendador/arrendador.component';
 import { ArrendatarioComponent } from './arrendatario/arrendatario.component';
 import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arrendatario-edit.component';
 
@@ -22,9 +21,6 @@ const appRoutes: Routes = [
     { path: ':id', component: TractorDetailComponent },
     { path: ':id/edit', component: TractorEditComponent }
   ] },
-  { path: 'arrendador', component: ArrendadorComponent, canActivate: [AuthGuard], children: [
-      { path: ':id', component: ArrendadorDetailComponent }
-    ] },
   { path: 'apartado', component: ApartadoComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent},
   { path: 'signin', component: SigninComponent},

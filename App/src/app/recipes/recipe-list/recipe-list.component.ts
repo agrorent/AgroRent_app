@@ -28,6 +28,10 @@ export class TractorListComponent implements OnInit, OnDestroy {
     this.tractores = this.recipeService.getTractores();
   }
 
+  onNewTractor() {
+    this.router.navigate(['new'], { relativeTo: this.route });
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
