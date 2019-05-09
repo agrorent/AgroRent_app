@@ -31,6 +31,11 @@ export class TractorService {
     return this.Tractores.slice(); // We get a copy of the array whit slice
   }
 
+  getApartados() {
+    return this.Apartados.slice(); // We get a copy of the array whit slice
+    console.log(this.Apartados);
+  }
+
   getUsuarios() {
     return this.Usuarios.slice(); // We get a copy of the array whit slice
     console.log(this.Usuarios);
@@ -38,6 +43,11 @@ export class TractorService {
 
   getTractor(index: number) {
     return this.Tractores[index];
+  }
+
+  addApartados(apartados: Apartado) {
+    // @ts-ignore
+    this.Apartados.push(apartados);
   }
 
   addTractoresToApartado(caracteristicas: Caracteristica[]) {

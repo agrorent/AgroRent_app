@@ -24,6 +24,13 @@ export class DataStorageService {
 
             this.recipeService.getUsuarios());
   }
+
+    storeApartados() {
+        return this.http.put('https://agrorent-7f6fd.firebaseio.com/apartados.json',
+
+            this.recipeService.getApartados());
+    }
+
   getTractores() {
     const token = this.authService.getToken();
     this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json?auth=' + token)
@@ -48,8 +55,7 @@ export class DataStorageService {
   }
 
     getApartados() {
-        const token = this.authService.getToken();
-        this.http.get('https://agrorent-7f6fd.firebaseio.com/apartados.json?auth=' + token)
+        this.http.get('https://agrorent-7f6fd.firebaseio.com/apartados.json')
             .pipe(map(
                 (response: Response) => {
                     const apartados: Apartado[] = response.json();
@@ -63,6 +69,7 @@ export class DataStorageService {
                 }
             );
     }
+
 
     getTractoresStart() {
         this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json')
