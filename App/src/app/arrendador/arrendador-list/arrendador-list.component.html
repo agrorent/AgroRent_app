@@ -1,3 +1,8 @@
-<p>
-  arrendador-list works!
-</p>
+<div class="row">
+  <div class="col-6" style="margin-top: 20px;">
+    <app-arrendador-item
+            *ngFor="let recipeEl of tractores; let i = index"
+            [tractor]="recipeEl"
+            [index]="i"></app-arrendador-item>
+  </div>
+</div>
