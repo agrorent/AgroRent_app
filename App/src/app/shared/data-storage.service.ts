@@ -55,7 +55,8 @@ export class DataStorageService {
   }
 
     getApartados() {
-        this.http.get('https://agrorent-7f6fd.firebaseio.com/apartados.json')
+        const token = this.authService.getToken();
+        this.http.get('https://agrorent-7f6fd.firebaseio.com/apartados.json?auth=' + token)
             .pipe(map(
                 (response: Response) => {
                     const apartados: Apartado[] = response.json();
