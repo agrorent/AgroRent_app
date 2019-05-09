@@ -47,7 +47,6 @@ export class DataStorageService {
   }
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
     getApartados() {
         const token = this.authService.getToken();
@@ -67,8 +66,6 @@ export class DataStorageService {
     }
 
 >>>>>>> parent of cbdb9798... Trying to get the info from apartados
-=======
->>>>>>> parent of 33b31919... Almost done apartado
     getTractoresStart() {
         this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json')
             .pipe(map(
