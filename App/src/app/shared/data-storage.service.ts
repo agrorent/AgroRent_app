@@ -5,7 +5,6 @@ import { map } from "rxjs/operators";
 import { TractorService } from '../recipes/recipe.service';
 import { Tractor } from '../recipes/recipe.model';
 import { AuthService } from '../auth/auth.service';
-import {Apartado} from './ingredient.module';
 
 
 @Injectable()
@@ -24,13 +23,6 @@ export class DataStorageService {
 
             this.recipeService.getUsuarios());
   }
-
-    storeApartados() {
-        return this.http.put('https://agrorent-7f6fd.firebaseio.com/apartados.json',
-
-            this.recipeService.getApartados());
-    }
-
   getTractores() {
     const token = this.authService.getToken();
     this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json?auth=' + token)
@@ -53,23 +45,6 @@ export class DataStorageService {
       }
     );
   }
-
-    getApartados() {
-        const token = this.authService.getToken();
-        this.http.get('https://agrorent-7f6fd.firebaseio.com/apartados.json?auth=' + token)
-            .pipe(map(
-                (response: Response) => {
-                    const apartados: Apartado[] = response.json();
-                    return apartados;
-                }
-            ))
-            .subscribe(
-                (apartados: Apartado[]) => {
-                    this.recipeService.setApartados(apartados);
-                    console.log('manda apartados');
-                }
-            );
-    }
 
     getTractoresStart() {
         this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json')

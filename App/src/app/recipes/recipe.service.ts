@@ -13,17 +13,12 @@ export class TractorService {
 
   private Tractores: Tractor[] = [];
   private Usuarios: Usuarios[] = [];
-  private Apartados: Apartado[] = [];
 
   constructor(private slService: ApartadoListService) {}
 
   setTractores(Tractores: Tractor[]) {
     this.Tractores = Tractores;
     this.TractoresChanged.next(this.Tractores.slice());
-  }
-
-  setApartados(Apartados: Apartado[]) {
-    this.Apartados = Apartados;
   }
 
   getTractores() {
@@ -33,11 +28,6 @@ export class TractorService {
   getUsuarios() {
     return this.Usuarios.slice(); // We get a copy of the array whit slice
     console.log(this.Usuarios);
-  }
-
-  getApartados() {
-    return this.Apartados.slice(); // We get a copy of the array whit slice
-    console.log(this.Apartados);
   }
 
   getTractor(index: number) {
@@ -60,11 +50,6 @@ export class TractorService {
   addUsuario(usuario: Usuarios[]) {
     // @ts-ignore
     this.Usuarios.push(usuario);
-  }
-
-  addApartados(apartados: Apartado) {
-    // @ts-ignore
-    this.Apartados.push(apartados);
   }
 
   updateTractor(index: number, newRecipe: Tractor) {

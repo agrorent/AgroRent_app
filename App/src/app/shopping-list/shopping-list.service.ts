@@ -10,6 +10,8 @@ export class ApartadoListService {
   ];
   private apartados: Apartado[] = [];
 
+  //private NameTractor: ;
+
   getCaracteristicas() {
     return this.caracteristicas.slice();
   }
