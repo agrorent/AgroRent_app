@@ -28,8 +28,7 @@ export class ApartadoListService {
     this.caracteristicasChanged.next(this.caracteristicas.slice());
   }
 
-
-  addApartadosPrueba(t: Apartado) {
+  addCaracteristicasPrueba(t: Apartado) {
     this.apartados.push(t);
   }
 

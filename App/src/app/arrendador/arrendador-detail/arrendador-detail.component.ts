@@ -38,8 +38,8 @@ export class ArrendadorDetailComponent implements OnInit {
   onAddToApartadoPrueba() {
 
     console.log(this.tractor.name + " // " + this.tractor.status );
-    this.apartado = (new Apartado(this.tractor.name, this.tractor.status ));
-    this.tractorService.addTractoresToApartadoPrueba( this.apartado);
+    this.apartado = (new Apartado(this.tractor.name, this.tractor.description, this.tractor.imagePath, this.tractor.status, this.tractor.precio));
+    this.tractorService.addTractoresToApartadoPrueba(this.apartado);
   }
 
   onEditTractor() {
@@ -49,10 +49,5 @@ export class ArrendadorDetailComponent implements OnInit {
   onDeleteTractor() {
     this.tractorService.deleteTractor(this.id);
     this.router.navigate(['/tractores']);
-  }
-
-  constructor() { }
-
-  ngOnInit() {
   }
 }
