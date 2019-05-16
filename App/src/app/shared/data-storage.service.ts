@@ -27,7 +27,7 @@ export class DataStorageService {
             this.recipeService.getUsuarios());
   }
 
-    storeApartados() {
+  storeApartados() {
         return this.http.put('https://agrorent-7f6fd.firebaseio.com/apartados.json',
 
             this.recipeService.getApartados());
