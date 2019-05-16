@@ -61,7 +61,7 @@ export class ArrendatarioEditComponent implements OnInit {
     let tractorPrecio;
     let tractorImagePath = '';
     let tractorDescription = '';
-    let tractorStatus = 'Pendiente';
+    let tractorStatus = '';
     let tractorCaracteristicas = new FormArray([]);
 
     if (this.editMode) {

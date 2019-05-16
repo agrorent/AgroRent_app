@@ -19,13 +19,10 @@
         <li><a (click)="onAddToApartadoPrueba()" style="cursor: pointer; z-index: 10;">Apartar</a></li>
         <li><a style="cursor: pointer;" (click)="onEditTractor()">Editar Info</a></li>
         <li><a style="cursor: pointer;" (click)="onDeleteTractor()">Borrar Maquinaria</a></li>
-        <li><a style="cursor: pointer;" (click)="onAutorizar()">Autorizar</a></li>
       </ul>
     </div>
   </div>
 </div>
-<br>
-<br>
 <div class="row">
   <div class="col-xs-12" style="margin-top: 500px; position: fixed;">
     Precio: {{ tractor.precio }}
@@ -38,10 +35,6 @@
   <div class="col-xs-12" style="margin-top: 500px; position: fixed;">
     Status: {{ tractor.status }}
   </div>
-  <button
-          type="submit"
-          class="btn btn-success"
-          [disabled]="tractor.status != 'Libre'">Save</button>
 </div>
 <div class="row">
   <div class="col-xs-12" style="margin-top: 530px; position: fixed; width: 45%;">
