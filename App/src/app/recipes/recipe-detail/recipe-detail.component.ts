@@ -4,8 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Tractor } from '../recipe.model';
 import { TractorService } from '../recipe.service';
 import {Apartado} from '../../shared/ingredient.module';
-import {Response} from '@angular/http';
-import {DataStorageService} from '../../shared/data-storage.service';
+
 
 @Component({
   selector: 'app-recipe-detail',
@@ -16,12 +15,10 @@ export class TractorDetailComponent implements OnInit {
   tractor: Tractor;
   id: number;
   apartado: Apartado;
-  apartados: Apartado[];
 
   constructor(private tractorService: TractorService,
               private route: ActivatedRoute,
-              private router: Router,
-              private dataStorageService: DataStorageService) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -39,6 +36,7 @@ export class TractorDetailComponent implements OnInit {
 
   onAddToApartadoPrueba() {
 
+<<<<<<< HEAD
     console.log(this.tractor.name + " // " + this.tractor.description + " // " + this.tractor.imagePath + " // " + this.tractor.status + " // " + this.tractor.precio );
     this.apartado = (new Apartado(this.tractor.name, this.tractor.description, this.tractor.imagePath, this.tractor.status = 'Apartado' , this.tractor.precio ));
     // this.tractorService.addTractoresToApartadoPrueba(this.apartado);
@@ -50,6 +48,11 @@ export class TractorDetailComponent implements OnInit {
           console.log(response);
         }
     );
+=======
+    console.log(this.tractor.name + " // " + this.tractor.status );
+    this.apartado = (new Apartado(this.tractor.name, this.tractor.status ));
+    this.tractorService.addTractoresToApartadoPrueba( this.apartado);
+>>>>>>> parent of 42accb14... merge master into benja2
   }
 
   onEditTractor() {

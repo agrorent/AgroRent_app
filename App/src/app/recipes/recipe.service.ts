@@ -13,8 +13,12 @@ export class TractorService {
   TractoresChanged = new Subject<Tractor[]>();
 
   private Tractores: Tractor[] = [];
+<<<<<<< HEAD
   private Usuarios: Usuario[] = [];
   private Apartados: Apartado[] = [];
+=======
+  private Usuarios: Usuarios[] = [];
+>>>>>>> parent of 42accb14... merge master into benja2
 
   constructor(private slService: ApartadoListService) {}
 
@@ -27,19 +31,8 @@ export class TractorService {
     this.Usuarios = Usuarios;
   }
 
-  setApartados(Apartados: Apartado[]) {
-    this.Apartados = Apartados;
-
-  }
-
   getTractores() {
     return this.Tractores.slice(); // We get a copy of the array whit slice
-  }
-
-  getApartados() {
-    console.log('Llega a getApartados?');
-    return this.Apartados.slice(); // We get a copy of the array whit slice
-
   }
 
   getUsuarios() {
@@ -51,17 +44,16 @@ export class TractorService {
     return this.Tractores[index];
   }
 
-  addApartados(apartados: Apartado) {
-    // @ts-ignore
-    this.Apartados.push(apartados);
-  }
-
   addTractoresToApartado(caracteristicas: Caracteristica[]) {
     this.slService.addCaracteristicas(caracteristicas);
   }
 
   addTractoresToApartadoPrueba(apartado: Apartado) {
+<<<<<<< HEAD
     this.slService.addApartadosPrueba(apartado);
+=======
+    this.slService.addCaracteristicasPrueba(apartado);
+>>>>>>> parent of 42accb14... merge master into benja2
   }
 
   addTractor(recipe: Tractor) {
