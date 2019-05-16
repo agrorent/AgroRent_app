@@ -26,6 +26,7 @@ export class TractorDetailComponent implements OnInit {
     this.route.params
     .subscribe(
       (params: Params) => {
+        console.log(this.id)
         this.id = +params['id'];
         this.tractor = this.tractorService.getTractor(this.id);
       }
