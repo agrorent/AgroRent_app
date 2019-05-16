@@ -4,11 +4,13 @@ import { TractorService } from '../../recipes/recipe.service';
 
 import { Router, ActivatedRoute} from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-arrendador-list',
   templateUrl: './arrendador-list.component.html',
 })
+
 export class ArrendadorListComponent implements OnInit, OnDestroy {
   tractores: Tractor[] = [];
   subscription: Subscription

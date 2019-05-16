@@ -4,6 +4,7 @@ export class Caracteristica {
 }
 
 export class Apartado {
-  constructor(public name: string, public status: string) {
+  constructor(public name: string, public description: string, public imagePath: string, public status: string, public precio: number) {
+
   }
 }

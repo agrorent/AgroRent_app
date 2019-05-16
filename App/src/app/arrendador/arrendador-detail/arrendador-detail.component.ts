@@ -50,4 +50,9 @@ export class ArrendadorDetailComponent implements OnInit {
     this.tractorService.deleteTractor(this.id);
     this.router.navigate(['/tractores']);
   }
+
+  constructor() { }
+
+  ngOnInit() {
+  }
 }
