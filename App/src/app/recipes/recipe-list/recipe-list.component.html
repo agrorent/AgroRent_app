@@ -1,0 +1,15 @@
+<div class="row" style="z-index: 0;">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewTractor()" style="">Agregar Tractores</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12" style="margin-top: 20px;">
+    <app-recipe-item
+            *ngFor="let recipeEl of tractores; let i = index"
+            [tractor]="recipeEl"
+            [index]="i"></app-recipe-item>
+  </div>
+</div>
+

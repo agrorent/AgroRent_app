@@ -13,7 +13,6 @@ import {TractorService} from '../recipes/recipe.service';
 export class ApartadoComponent implements OnInit {
   caracteristicas: Caracteristica[];
   apartados: Apartado[];
-  private subscription: Subscription;
 
   constructor(private slService: ApartadoListService,
               private tractorService: TractorService,
@@ -21,23 +20,6 @@ export class ApartadoComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.caracteristicas = this.slService.getCaracteristicas();
-    this.subscription = this.slService.caracteristicasChanged
-     .subscribe(
-      (caracteristicas: Caracteristica[]) => {
-        this.caracteristicas = caracteristicas;
-      }
-      );
-
-    this.apartados = this.slService.getApartados();
-  }
-
-  onEditItem(index: number) {
-    this.slService.startedEditing.next(index);
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
     this.apartados = this.tractorService.getApartados();
   }
 }
