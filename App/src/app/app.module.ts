@@ -37,7 +37,6 @@ import { ArrendatarioDetailComponent } from './arrendatario/arrendatario-detail/
 import { ArrendatarioListComponent } from './arrendatario/arrendatario-list/arrendatario-list.component';
 import { ArrendatarioItemComponent } from './arrendatario/arrendatario-list/arrendatario-item/arrendatario-item.component';
 import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arrendatario-edit.component';
-import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -63,8 +62,7 @@ import { ProfileComponent } from './profile/profile.component';
     ArrendatarioDetailComponent,
     ArrendatarioListComponent,
     ArrendatarioItemComponent,
-    ArrendatarioEditComponent,
-    ProfileComponent
+    ArrendatarioEditComponent
   ],
   imports: [
     BrowserModule,

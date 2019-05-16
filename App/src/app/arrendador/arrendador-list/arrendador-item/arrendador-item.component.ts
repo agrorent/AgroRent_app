@@ -8,10 +8,11 @@ import { Tractor } from '../../../recipes/recipe.model';
   styleUrls: ['./arrendador-item.component.css']
 })
 export class ArrendadorItemComponent implements OnInit {
+  @Input() tractor: Tractor;
+  @Input() index: number;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

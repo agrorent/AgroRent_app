@@ -4,7 +4,6 @@ import { Caracteristica, Apartado } from '../shared/ingredient.module';
 import { ApartadoListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
 import { Usuarios } from '../auth/signup/signup.model';
-import {Usuario} from '../shared/ingredient.module';
 
 @Injectable()
 
@@ -13,7 +12,7 @@ export class TractorService {
   TractoresChanged = new Subject<Tractor[]>();
 
   private Tractores: Tractor[] = [];
-  private Usuarios: Usuario[] = [];
+  private Usuarios: Usuarios[] = [];
   private Apartados: Apartado[] = [];
 
   constructor(private slService: ApartadoListService) {}
@@ -21,10 +20,6 @@ export class TractorService {
   setTractores(Tractores: Tractor[]) {
     this.Tractores = Tractores;
     this.TractoresChanged.next(this.Tractores.slice());
-  }
-  setUsuarios(Usuarios: Usuario[]) {
-    console.log("Persistiendo usuarios")
-    this.Usuarios = Usuarios;
   }
 
   setApartados(Apartados: Apartado[]) {
@@ -61,7 +56,8 @@ export class TractorService {
   }
 
   addTractoresToApartadoPrueba(apartado: Apartado) {
-    this.slService.addApartadosPrueba(apartado);
+    this.slService.addCaracteristicasPrueba(apartado);
+    //this.slService.addApartadosPrueba(apartado);
   }
 
   addTractor(recipe: Tractor) {
