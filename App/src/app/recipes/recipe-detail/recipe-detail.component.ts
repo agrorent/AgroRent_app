@@ -16,7 +16,6 @@ export class TractorDetailComponent implements OnInit {
   tractor: Tractor;
   id: number;
   apartado: Apartado;
-  apartados: Apartado[];
 
   constructor(private tractorService: TractorService,
               private route: ActivatedRoute,
@@ -27,6 +26,7 @@ export class TractorDetailComponent implements OnInit {
     this.route.params
     .subscribe(
       (params: Params) => {
+        console.log(this.id)
         this.id = +params['id'];
         this.tractor = this.tractorService.getTractor(this.id);
       }
@@ -43,9 +43,7 @@ export class TractorDetailComponent implements OnInit {
     console.log(this.tractor.name + " // " + this.tractor.description + " // " + this.tractor.imagePath + " // " + this.tractor.status + " // " + this.tractor.precio );
     this.apartado = (new Apartado(this.tractor.name, this.tractor.description, this.tractor.imagePath, this.tractor.status = 'Apartado' , this.tractor.precio ));
     // this.tractorService.addTractoresToApartadoPrueba(this.apartado);
-
     this.tractorService.addApartados(this.apartado);
-
     this.dataStorageService.storeApartados().subscribe(
         (response: Response) => {
           console.log(response);
@@ -55,10 +53,15 @@ export class TractorDetailComponent implements OnInit {
 
   onEditTractor() {
      this.router.navigate([ 'edit' ], {relativeTo: this.route});
-    // this.router.navigate([ '../', this.id, 'edit' ], {relativeTo: this.route});
   }
   onDeleteTractor() {
     this.tractorService.deleteTractor(this.id);
     this.router.navigate(['/tractores']);
+  }
+
+  onAutorizar() {
+
+    this.tractor.status = 'Libre';
+    console.log(this.tractor.name + " // " + this.tractor.description + " // " + this.tractor.imagePath + " // " + this.tractor.status + " // " + this.tractor.precio );
   }
 }

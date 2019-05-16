@@ -21,7 +21,9 @@ export class AuthService {
                 this.router.navigate(['/tractores']);
                 firebase.auth().currentUser.getIdToken()
                 .then(
-                    (token: string) => this.token = token
+                    (token: string) => {
+                        this.token = token;
+                    }
                 );
 
             }
