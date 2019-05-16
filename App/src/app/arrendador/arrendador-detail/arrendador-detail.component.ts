@@ -5,7 +5,6 @@ import { Tractor } from '../../recipes/recipe.model';
 import { TractorService } from '../../recipes/recipe.service';
 import {Apartado} from '../../shared/ingredient.module';
 
-
 @Component({
   selector: 'app-arrendador-detail',
   templateUrl: './arrendador-detail.component.html',
