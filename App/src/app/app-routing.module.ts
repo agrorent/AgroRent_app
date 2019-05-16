@@ -12,6 +12,7 @@ import { AuthGuard } from './auth/auth-guard.service';
 import {ArrendadorComponent} from './arrendador/arrendador.component';
 import { ArrendatarioComponent } from './arrendatario/arrendatario.component';
 import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arrendatario-edit.component';
+import { ProfileComponent } from 'src/app/profile/profile.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     { path: ':id/edit', component: TractorEditComponent }
   ] },
   { path: 'apartado', component: ApartadoComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'signup', component: SignupComponent},
   { path: 'signin', component: SigninComponent},
   { path: 'arrendador', component: ArrendadorComponent },
