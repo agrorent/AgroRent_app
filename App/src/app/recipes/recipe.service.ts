@@ -13,12 +13,8 @@ export class TractorService {
   TractoresChanged = new Subject<Tractor[]>();
 
   private Tractores: Tractor[] = [];
-<<<<<<< HEAD
   private Usuarios: Usuario[] = [];
   private Apartados: Apartado[] = [];
-=======
-  private Usuarios: Usuarios[] = [];
->>>>>>> parent of 42accb14... merge master into benja2
 
   constructor(private slService: ApartadoListService) {}
 
@@ -49,11 +45,11 @@ export class TractorService {
   }
 
   addTractoresToApartadoPrueba(apartado: Apartado) {
-<<<<<<< HEAD
     this.slService.addApartadosPrueba(apartado);
-=======
+  }
+
+  addTractoresToCaracteristicasPrueba(apartado: Apartado) {
     this.slService.addCaracteristicasPrueba(apartado);
->>>>>>> parent of 42accb14... merge master into benja2
   }
 
   addTractor(recipe: Tractor) {
