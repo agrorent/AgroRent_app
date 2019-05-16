@@ -10,6 +10,7 @@ import { SignupComponent} from './auth/signup/signup.component';
 import { SigninComponent} from './auth/signin/signin.component';
 import { AuthGuard } from './auth/auth-guard.service';
 import {ArrendadorComponent} from './arrendador/arrendador.component';
+import { ArrendadorDetailComponent } from './arrendador/arrendador-detail/arrendador-detail.component';
 import { ArrendatarioComponent } from './arrendatario/arrendatario.component';
 import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arrendatario-edit.component';
 
@@ -27,6 +28,9 @@ const appRoutes: Routes = [
   { path: 'arrendador', component: ArrendadorComponent },
   { path: 'arrendatario', component: ArrendatarioComponent, children: [
       {path: 'new', component: ArrendatarioEditComponent}
+    ] },
+  { path: 'arrendador', component: ArrendadorComponent, children: [
+      { path: ':id', component: ArrendadorDetailComponent },
     ] }
 ];
 
