@@ -4,6 +4,7 @@ import { Caracteristica, Apartado } from '../shared/ingredient.module';
 import { ApartadoListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
 import { Usuarios } from '../auth/signup/signup.model';
+import {Usuario} from '../shared/ingredient.module';
 
 @Injectable()
 
@@ -12,8 +13,12 @@ export class TractorService {
   TractoresChanged = new Subject<Tractor[]>();
 
   private Tractores: Tractor[] = [];
-  private Usuarios: Usuarios[] = [];
+<<<<<<< HEAD
+  private Usuarios: Usuario[] = [];
   private Apartados: Apartado[] = [];
+=======
+  private Usuarios: Usuarios[] = [];
+>>>>>>> parent of 42accb14... merge master into benja2
 
   constructor(private slService: ApartadoListService) {}
 
@@ -21,20 +26,13 @@ export class TractorService {
     this.Tractores = Tractores;
     this.TractoresChanged.next(this.Tractores.slice());
   }
-
-  setApartados(Apartados: Apartado[]) {
-    this.Apartados = Apartados;
-
+  setUsuarios(Usuarios: Usuario[]) {
+    console.log("Persistiendo usuarios")
+    this.Usuarios = Usuarios;
   }
 
   getTractores() {
     return this.Tractores.slice(); // We get a copy of the array whit slice
-  }
-
-  getApartados() {
-    console.log('Llega a getApartados?');
-    return this.Apartados.slice(); // We get a copy of the array whit slice
-
   }
 
   getUsuarios() {
@@ -46,18 +44,16 @@ export class TractorService {
     return this.Tractores[index];
   }
 
-  addApartados(apartados: Apartado) {
-    // @ts-ignore
-    this.Apartados.push(apartados);
-  }
-
   addTractoresToApartado(caracteristicas: Caracteristica[]) {
     this.slService.addCaracteristicas(caracteristicas);
   }
 
   addTractoresToApartadoPrueba(apartado: Apartado) {
-    this.slService.addCaracteristicasPrueba(apartado);
+<<<<<<< HEAD
     this.slService.addApartadosPrueba(apartado);
+=======
+    this.slService.addCaracteristicasPrueba(apartado);
+>>>>>>> parent of 42accb14... merge master into benja2
   }
 
   addTractor(recipe: Tractor) {

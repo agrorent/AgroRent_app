@@ -10,6 +10,7 @@ export class ApartadoListService {
   ];
   private apartados: Apartado[] = [];
 
+  //private NameTractor: ;
 
   getCaracteristicas() {
     return this.caracteristicas.slice();
@@ -28,8 +29,11 @@ export class ApartadoListService {
     this.caracteristicasChanged.next(this.caracteristicas.slice());
   }
 
-
+<<<<<<< HEAD
   addApartadosPrueba(t: Apartado) {
+=======
+  addCaracteristicasPrueba(t: Apartado) {
+>>>>>>> parent of 42accb14... merge master into benja2
     this.apartados.push(t);
   }
 

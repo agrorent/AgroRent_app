@@ -1,11 +1,23 @@
+<<<<<<< HEAD
+import {Injectable} from '@angular/core';
+import {Http, Response} from '@angular/http';
+import {Observable} from "rxjs";
+import {map} from 'rxjs/operators';
+
+import {TractorService} from '../recipes/recipe.service';
+import {Tractor} from '../recipes/recipe.model';
+import {AuthService} from '../auth/auth.service';
+import {Apartado} from './ingredient.module';
+import {Usuario} from './ingredient.module';
+=======
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { map } from 'rxjs/operators';
+import { map } from "rxjs/operators";
 
 import { TractorService } from '../recipes/recipe.service';
 import { Tractor } from '../recipes/recipe.model';
 import { AuthService } from '../auth/auth.service';
-import { Apartado } from './ingredient.module';
+>>>>>>> parent of 42accb14... merge master into benja2
 
 
 @Injectable()
@@ -20,16 +32,24 @@ export class DataStorageService {
   }
 
   storeUsuarios() {
-      return this.http.put('https://agrorent-7f6fd.firebaseio.com/usuarios.json',
+<<<<<<< HEAD
+      return this.http.put('https://agrorent-7f6fd.firebaseio.com/usuario.json',
+
             this.recipeService.getUsuarios());
   }
 
-  storeApartados() {
+    storeApartados() {
         return this.http.put('https://agrorent-7f6fd.firebaseio.com/apartados.json',
 
             this.recipeService.getApartados());
     }
 
+=======
+      return this.http.put('https://agrorent-7f6fd.firebaseio.com/usuarios.json',
+
+            this.recipeService.getUsuarios());
+  }
+>>>>>>> parent of 42accb14... merge master into benja2
   getTractores() {
     const token = this.authService.getToken();
     this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json?auth=' + token)
@@ -52,23 +72,50 @@ export class DataStorageService {
       }
     );
   }
+  getCurrentProfile() : Observable<Usuario[]> {
+    console.log("Obteniendo usuarios");
+    return this.http.get('https://agrorent-7f6fd.firebaseio.com/usuario.json')
+        .pipe(map(
+            (response: Response) => {
+                // response.json es una lista de listas
+                const parsed_response = response.json();
+                const usuarios: Usuario[] = [];
 
-    getApartados() {
-        this.http.get('https://agrorent-7f6fd.firebaseio.com/apartados.json')
-            .pipe(map(
-                (response: Response) => {
-                    const apartados: Apartado[] = response.json();
-                    return apartados;
-                }
-            ))
-            .subscribe(
-                (apartados: Apartado[]) => {
-                    this.recipeService.setApartados(apartados);
-                    console.log('obtengo apartados');
-                }
-            );
-    }
+                console.log("Respuesta de usuarios: ");
+                console.log(parsed_response);
 
+                // Iteramos sobre la lista de usuarios 
+                for (let index in parsed_response) {
+                    // Obtenemos cada usuario
+                    let temp = parsed_response[index];
+
+                    // El campo 0 representa el nombre, el 4 el correo. 
+                    // El constructor de Usuario únicamente necesita estos dos datos, pero se pueden poner más
+                    // Agregamos cada objeto usuario a la lista que se devolverá
+                    usuarios.push(new Usuario(temp[0], temp[1],temp[2],temp[3],temp[5],temp[4]))
+                }
+
+                return usuarios;
+            }
+        ))
+}
+
+getUsuarios() {
+  console.log("Obteniendo usuarios registrados");
+  this.http.get('https://agrorent-7f6fd.firebaseio.com/usuario.json')
+      .pipe(map(
+          (response: Response) => {
+              console.log("Respuesta de usuarios: ");
+              console.log(response.json());
+              const usuarios: Usuario[] = response.json();
+              return usuarios;
+          }
+      )).subscribe(
+      (usuarios: Usuario[]) => {
+          this.recipeService.setUsuarios(usuarios);
+      }
+  );
+}
 
     getTractoresStart() {
         this.http.get('https://agrorent-7f6fd.firebaseio.com/tractores.json')

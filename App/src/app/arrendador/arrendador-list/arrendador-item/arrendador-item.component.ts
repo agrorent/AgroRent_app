@@ -1,7 +1,10 @@
+<<<<<<< HEAD
+import { Component, OnInit } from '@angular/core';
+=======
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Tractor } from '../../../recipes/recipe.model';
-import { Component, OnInit } from '@angular/core';
+>>>>>>> parent of 42accb14... merge master into benja2
 
 @Component({
   selector: 'app-arrendador-item',
@@ -9,11 +12,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./arrendador-item.component.css']
 })
 export class ArrendadorItemComponent implements OnInit {
-  @Input() tractor: Tractor;
-  @Input() index: number;
-
-  constructor() { }
 
   ngOnInit() {
   }
+
 }

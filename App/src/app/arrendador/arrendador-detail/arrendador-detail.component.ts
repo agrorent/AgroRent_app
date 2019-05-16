@@ -1,10 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-
-import { Tractor } from '../../recipes/recipe.model';
-import { TractorService } from '../../recipes/recipe.service';
-import {Apartado} from '../../shared/ingredient.module';
-
 
 @Component({
   selector: 'app-arrendador-detail',
@@ -12,6 +6,14 @@ import {Apartado} from '../../shared/ingredient.module';
   styleUrls: ['./arrendador-detail.component.css']
 })
 export class ArrendadorDetailComponent implements OnInit {
+<<<<<<< HEAD
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+=======
   tractor: Tractor;
   id: number;
   apartado: Apartado;
@@ -50,9 +52,5 @@ export class ArrendadorDetailComponent implements OnInit {
     this.tractorService.deleteTractor(this.id);
     this.router.navigate(['/tractores']);
   }
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+>>>>>>> parent of 42accb14... merge master into benja2
 }
