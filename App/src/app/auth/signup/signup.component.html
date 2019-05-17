@@ -42,10 +42,7 @@
           <p>Selecciona Arrendador si deseas <b>rentar maquinaria</b></p>
           <p>Selecciona Arrendatario si deseas <b>poner a trabjar maquinaria</b></p>
         </div>
-        <select class="form-control" id="type" name="type" >
-            <option>Arrendador</option>
-            <option>Arrendatario</option>
-        </select>
+        <input class="form-control" id="type" name="type" ngModel>
       </div>
 
       <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Sign Up</button>
