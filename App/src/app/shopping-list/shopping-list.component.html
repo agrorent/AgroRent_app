@@ -8,7 +8,27 @@
         class="list-group-item"
         style="..."
         *ngFor="let apartado of apartados; let i = index"
-      >{{ apartado.name }}  {{ apartado.description }} {{ apartado.imagePath }} {{ apartado.status }} {{ apartado.precio }}</a>
+      >
+        <div class="row">
+          <div class="col-xs-10" style="height: auto; max-height: 150px;">
+            <h3>{{ apartado.name }} </h3>
+            <p>{{ apartado.description }}</p>
+
+            <p>Status: {{ apartado.status }}</p>
+            <h5>Precio: {{ apartado.precio }}</h5>
+          </div>
+
+          <div class="col-xs-2">
+            <span class="pull-right">
+              <img
+                      src="{{ apartado.imagePath }}"
+                      alt="{{ apartado.name }}"
+                      class="img-responsive"
+                      style="max-height: 140px;">
+            </span>
+          </div>
+        </div>
+      </a>
     </ul>
   </div>
 </div>

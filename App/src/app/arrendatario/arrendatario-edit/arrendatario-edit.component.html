@@ -41,11 +41,11 @@
       <div class="row">
         <div class="col-xs-6">
           <div class="form-group">
-            <label for="name">Horas de trabajo de la máquina</label>
+            <label for="horas">Horas de trabajo de la máquina</label>
             <input
                     type="text"
-                    id="name"
-                    formControlName="name"
+                    id="horas"
+                    formControlName="horas"
                     class="form-control"
                     placeholder="999,999">
           </div>
@@ -116,11 +116,11 @@
       </div>
 
       <!--- Características Tractor --->
-      <div class="row caracteristicas" id="caracteristicasTractor" style="display: none;" formArrayName="caracteristicas">
+      <div class="row caracteristicas" id="caracteristicasTractor" style="display: none;">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="status" formControlName="name">Potencia del Tractor</label>
-            <select class="form-control" id="powerSelector" formControlName="amount">
+            <label for="power">Potencia del Tractor</label>
+            <select class="form-control" id="power" formControlName="power">
               <option>43-60 hp</option>
               <option>75-85 hp</option>
               <option>112-132 hp</option>
