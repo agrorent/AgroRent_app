@@ -29,6 +29,7 @@ export class SigninComponent implements OnInit {
   onFetch() {
     this.dataStorageService.getTractoresStart();
     this.dataStorageService.getApartados();
+    console.log(this.dataStorageService.getApartados());
   }
 
 }
