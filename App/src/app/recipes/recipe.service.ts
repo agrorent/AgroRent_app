@@ -51,9 +51,10 @@ export class TractorService {
     return this.Tractores[index];
   }
 
-  addApartados(apartados: Apartado) {
+  addApartados(apartados: Apartado, callback: Function) {
     // @ts-ignore
     this.Apartados.push(apartados);
+    callback('Tractor Apartado');
   }
 
   addTractoresToApartado(caracteristicas: Caracteristica[]) {
@@ -64,9 +65,10 @@ export class TractorService {
     this.slService.addApartadosPrueba(apartado);
   }
 
-  addTractor(recipe: Tractor) {
+  addTractor(recipe: Tractor, callback: Function) {
     this.Tractores.push(recipe);
     this.TractoresChanged.next(this.Tractores.slice());
+    callback ('Tractor añadido');
   }
 
   addUsuario(usuario: Usuarios[]) {
@@ -74,9 +76,10 @@ export class TractorService {
     this.Usuarios.push(usuario);
   }
 
-  updateTractor(index: number, newRecipe: Tractor) {
+  updateTractor(index: number, newRecipe: Tractor, callback: Function) {
     this.Tractores[index] = newRecipe;
     this.TractoresChanged.next(this.Tractores.slice());
+    callback ('Tractor actualizado');
   }
 
   deleteTractor(index: number) {

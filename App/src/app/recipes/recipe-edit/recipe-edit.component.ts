@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import { TractorService } from '../recipe.service';
+import {MessagesService} from '../../messages/messages.service';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -15,7 +16,8 @@ export class TractorEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private tractorService: TractorService,
-              private router: Router) { }
+              private router: Router,
+              private messageService: MessagesService) { }
 
   ngOnInit() {
     this.route.params
@@ -31,9 +33,9 @@ export class TractorEditComponent implements OnInit {
   }
   onSubmit() {
       if (this.editMode) {
-        this.tractorService.updateTractor(this.id, this.tractorForm.value);
+        this.tractorService.updateTractor(this.id, this.tractorForm.value, (msg: string)=>{  this.messageService.errorSingin(msg); });
       } else {
-        this.tractorService.addTractor(this.tractorForm.value);
+        this.tractorService.addTractor(this.tractorForm.value, (msg: string)=>{  this.messageService.errorSingin(msg); });
     }
       this.onCancel();
   }
