@@ -21,9 +21,11 @@
     Status: {{ tractor.status }}
   </div>
   <button
+          tyle="margin-top: 600px;"
           type="submit"
           class="btn btn-success"
-          [disabled]="tractor.status != 'Libre'">Save</button>
+          (ngSubmit)="onAddToApartadoPrueba()"
+          [disabled]="tractor.status != 'Libre'">Apartar</button>
 </div>
 <div class="row">
   <div class="col-xs-12" style="margin-top: 530px; position: fixed; width: 45%;">

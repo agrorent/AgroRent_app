@@ -34,11 +34,6 @@ export class ArrendadorDetailComponent implements OnInit {
             }
         );
   }
-
-  onAddToApartado() {
-    this.tractorService.addTractoresToApartado(this.tractor.caracteristicas);
-  }
-
   onAddToApartadoPrueba() {
 
     console.log(this.tractor.name + " // " + this.tractor.description + " // " + this.tractor.imagePath + " // " + this.tractor.status + " // " + this.tractor.precio );
@@ -50,19 +45,5 @@ export class ArrendadorDetailComponent implements OnInit {
           console.log(response);
         }
     );
-  }
-
-  onEditTractor() {
-    this.router.navigate([ 'edit' ], {relativeTo: this.route});
-  }
-  onDeleteTractor() {
-    this.tractorService.deleteTractor(this.id);
-    this.router.navigate(['/tractores']);
-  }
-
-  onAutorizar() {
-
-    this.tractor.status = 'Libre';
-    console.log(this.tractor.name + " // " + this.tractor.description + " // " + this.tractor.imagePath + " // " + this.tractor.status + " // " + this.tractor.precio );
   }
 }
