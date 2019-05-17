@@ -57,7 +57,7 @@ export class TractorDetailComponent implements OnInit {
   }
   onDeleteTractor() {
     this.tractorService.deleteTractor(this.id, (msg: string)=>{  this.messageService.errorSingin(msg);});
-    this.router.navigate(['/tractores']);
+    this.router.navigate(['/admin']);
   }
 
   onAutorizar() {
