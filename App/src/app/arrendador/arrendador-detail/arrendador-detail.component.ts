@@ -6,6 +6,7 @@ import { TractorService } from '../../recipes/recipe.service';
 import {Apartado} from '../../shared/ingredient.module';
 import {Response} from '@angular/http';
 import {DataStorageService} from '../../shared/data-storage.service';
+import {MessagesService} from '../../messages/messages.service';
 
 @Component({
   selector: 'app-arrendador-detail',
@@ -20,7 +21,8 @@ export class ArrendadorDetailComponent implements OnInit {
   constructor(private tractorService: TractorService,
               private route: ActivatedRoute,
               private router: Router,
-              private dataStorageService: DataStorageService) { }
+              private dataStorageService: DataStorageService,
+              private messageService: MessagesService) { }
 
   ngOnInit() {
     this.route.params
@@ -32,35 +34,16 @@ export class ArrendadorDetailComponent implements OnInit {
             }
         );
   }
-
-  onAddToApartado() {
-    this.tractorService.addTractoresToApartado(this.tractor.caracteristicas);
-  }
-
   onAddToApartadoPrueba() {
 
     console.log(this.tractor.name + " // " + this.tractor.description + " // " + this.tractor.imagePath + " // " + this.tractor.status + " // " + this.tractor.precio );
     this.apartado = (new Apartado(this.tractor.name, this.tractor.description, this.tractor.imagePath, this.tractor.status = 'Apartado' , this.tractor.precio ));
     // this.tractorService.addTractoresToApartadoPrueba(this.apartado);
-    this.tractorService.addApartados(this.apartado);
+    this.tractorService.addApartados(this.apartado, (msg: string)=>{  this.messageService.errorSingin(msg);});
     this.dataStorageService.storeApartados().subscribe(
         (response: Response) => {
           console.log(response);
         }
     );
-  }
-
-  onEditTractor() {
-    this.router.navigate([ 'edit' ], {relativeTo: this.route});
-  }
-  onDeleteTractor() {
-    this.tractorService.deleteTractor(this.id);
-    this.router.navigate(['/tractores']);
-  }
-
-  onAutorizar() {
-
-    this.tractor.status = 'Libre';
-    console.log(this.tractor.name + " // " + this.tractor.description + " // " + this.tractor.imagePath + " // " + this.tractor.status + " // " + this.tractor.precio );
   }
 }

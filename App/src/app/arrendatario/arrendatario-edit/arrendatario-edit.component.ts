@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 
 import { TractorService} from '../../recipes/recipe.service';
+import {MessagesService} from '../../messages/messages.service';
 
 @Component({
   selector: 'app-arrendatario-edit',
@@ -17,7 +18,8 @@ export class ArrendatarioEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private tractorService: TractorService,
-              private router: Router) { }
+              private router: Router,
+              private messageService: MessagesService) { }
 
   ngOnInit() {
     this.route.params
@@ -32,9 +34,9 @@ export class ArrendatarioEditComponent implements OnInit {
 
   onSubmit() {
     if (this.editMode) {
-      this.tractorService.updateTractor(this.id, this.tractorForm.value);
+      this.tractorService.updateTractor(this.id, this.tractorForm.value, (msg: string)=>{  this.messageService.errorSingin(msg); });
     } else {
-      this.tractorService.addTractor(this.tractorForm.value);
+      this.tractorService.addTractor(this.tractorForm.value, (msg: string)=>{  this.messageService.errorSingin(msg); });
       console.log(this.tractorForm.value);
     }
     this.onCancel();
