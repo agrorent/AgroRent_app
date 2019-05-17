@@ -17,7 +17,7 @@ import {ArrendadorDetailComponent} from './arrendador/arrendador-detail/arrendad
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
-  { path: 'tractores', component: TractoresComponent, canActivate: [AuthGuard], children: [
+  { path: 'admin', component: TractoresComponent, canActivate: [AuthGuard], children: [
     { path: '', component: TractorStartComponent },
     { path: 'new', component: TractorEditComponent},
     { path: ':id', component: TractorDetailComponent },
