@@ -21,6 +21,7 @@
         <li><a style="cursor: pointer;" (click)="onDeleteTractor()">Borrar Maquinaria</a></li>
         <li><a style="cursor: pointer;" (click)="onAutorizar()">Autorizar</a></li>
       </ul>
+      <button type="submit"  class="btn btn-success"  [disabled]="tractor.status != 'Libre'" style="margin-left: 10px;">Save</button>
     </div>
   </div>
 </div>
@@ -38,10 +39,6 @@
   <div class="col-xs-12" style="margin-top: 500px; position: fixed;">
     Status: {{ tractor.status }}
   </div>
-  <button
-          type="submit"
-          class="btn btn-success"
-          [disabled]="tractor.status != 'Libre'">Save</button>
 </div>
 <div class="row">
   <div class="col-xs-12" style="margin-top: 530px; position: fixed; width: 45%;">

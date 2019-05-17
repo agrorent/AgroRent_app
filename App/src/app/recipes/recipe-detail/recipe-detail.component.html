@@ -38,10 +38,6 @@
   <div class="col-xs-12" style="margin-top: 500px; position: fixed;">
     Status: {{ tractor.status }}
   </div>
-  <button
-          type="submit"
-          class="btn btn-success"
-          [disabled]="tractor.status != 'Libre'">Save</button>
 </div>
 <div class="row">
   <div class="col-xs-12" style="margin-top: 530px; position: fixed; width: 45%;">
@@ -52,4 +48,8 @@
         >{{ caracteristica.name }}: {{ caracteristica.amount }}</li>
     </ul>
   </div>
+  <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="tractor.status != 'Libre'" style="z-index: -3;">Save</button>
 </div>
