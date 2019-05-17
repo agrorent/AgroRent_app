@@ -14,8 +14,6 @@ export class AuthService {
                 callback('Error: Correo Existente');
             }
         );
-
-        callback('Registro Exitoso');
     }
 
     // tslint:disable-next-line:ban-types
