@@ -64,13 +64,7 @@ export class ArrendatarioEditComponent implements OnInit {
     let tractorImagePath = '';
     let tractorDescription = '';
     let tractorStatus = 'Pendiente';
-    let tractorTipo = '';
     let tractorCaracteristicas = new FormArray([]);
-    let tractorPower = '';
-    let tractorMarca = '';
-    let tractorGranos = '';
-    let tractorNumDiscos = 0;
-    let tractorMecanismo= '';
 
     if (this.editMode) {
       const recipe = this.tractorService.getTractor(this.id);
@@ -79,12 +73,6 @@ export class ArrendatarioEditComponent implements OnInit {
       tractorDescription = recipe.description;
       tractorPrecio = recipe.precio;
       tractorStatus = recipe.status;
-      tractorTipo = recipe.tipo;
-      tractorPower = recipe.power;
-      tractorMarca = recipe.marca;
-      tractorGranos = recipe.granos;
-      tractorNumDiscos = recipe.numDiscos;
-      tractorMecanismo = recipe.mecanismo;
 
       if (recipe['caracteristicas']) {
         for (let caracteristica of recipe.caracteristicas) {
@@ -107,12 +95,6 @@ export class ArrendatarioEditComponent implements OnInit {
       'imagePath': new FormControl(tractorImagePath, Validators.required),
       'description': new FormControl(tractorDescription, Validators.required ),
       'status': new FormControl(tractorStatus, Validators.required ),
-      'tipo': new FormControl(tractorTipo, Validators.required),
-      'power': new FormControl(tractorPower),
-      'marca': new FormControl(tractorMarca),
-      'granos': new FormControl(tractorGranos),
-      'numDiscos': new FormControl(tractorNumDiscos),
-      'mecanismo': new FormControl(tractorMecanismo),
       'caracteristicas': tractorCaracteristicas
     });
     console.log(this.tractorForm.value);
