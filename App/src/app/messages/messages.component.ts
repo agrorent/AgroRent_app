@@ -10,7 +10,7 @@ export class MessagesComponent implements OnInit, OnDestroy {
 
 
   static lastMessage: string = '12345';
-  lastMessage:string = '';
+  lastMessage: string = '';
   constructor(private messageService: MessagesService) {
 
     messageService.subscribe(this);
@@ -19,16 +19,11 @@ export class MessagesComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    console.log('initialized');
-    //MessagesComponent.lastMessage = 'joe';
-
-
   }
 
 
   ngOnDestroy() {
     this.messageService.unSubscribe(this);
-    MessagesComponent.lastMessage = '2344';
     console.log('destroyed');
   }
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service';
 import { Response } from '@angular/http';
 import { AuthService } from '../auth/auth.service';
+import {MessagesService} from '../messages/messages.service';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { AuthService } from '../auth/auth.service';
 })
 export class HeaderComponent {
   constructor(private dataStorageService: DataStorageService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private messageService: MessagesService) {
 
   }
   onSaveData() {
@@ -31,6 +33,6 @@ export class HeaderComponent {
 
   onLogout(){
     console.log('out');
-    this.authService.logout();
+    this.authService.logout((msg: string)=>{  this.messageService.errorSingin(msg); });
   }
 }

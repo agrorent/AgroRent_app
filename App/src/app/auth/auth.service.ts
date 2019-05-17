@@ -6,11 +6,16 @@ import { Injectable } from '@angular/core';
 export class AuthService {
     token: string;
     constructor(private router: Router) {}
-    signupUser(email: string, password: string){
+    signupUser(email: string, password: string, callback: Function) {
         firebase.auth().createUserWithEmailAndPassword(email, password)
         .catch(
-            error => console.log(error)
+            error => {
+                console.log(error);
+                callback('Error: Correo Existente');
+            }
         );
+
+        callback('Registro Exitoso');
     }
 
     // tslint:disable-next-line:ban-types
@@ -23,6 +28,7 @@ export class AuthService {
                 .then(
                     (token: string) => {
                         this.token = token;
+                        callback('Inicio exitoso');
                     }
                 );
 
@@ -32,15 +38,16 @@ export class AuthService {
         .catch(
             error => {
                 console.log(error);
-                callback('Wrong user/password');
+                callback('Usuario/Constraseña incorrecto');
             }
         );
     }
 
-    logout() {
+    logout(callback: Function) {
         firebase.auth().signOut();
         this.token = null;
         this.router.navigate(['/signin']);
+        callback('Sesion cerrada');
     }
 
     getToken(){
