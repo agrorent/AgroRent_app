@@ -11,56 +11,22 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
           integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
           crossorigin="anonymous"></script>
-
-
-  <script>
-    $(document).ready(function(){
-      $("select#tipo").change(function() {
-        var selectedType= $(this).children("option:selected").val();
-
-        // Tractor option selected
-        if(selectedType == 'Tractor') {
-          //$("#output-div").append('<h3>You have selected type: ' +  selectedType + '</h3>');
-          $(".caracteristicas").css("display", "none");
-          $("#caracteristicasTractor").css("display", "block");
-        }
-
-        // Empacadora option selected
-        if(selectedType == 'Empacadora') {
-          $(".caracteristicas").css("display", "none");
-          $("#caracteristicasEmpacadora").css("display", "block");
-        }
-
-        // Cosechadora option selected
-        if(selectedType == 'Cosechadora') {
-          $(".caracteristicas").css("display", "none");
-          $("#caracteristicasCosechadora").css("display", "block");
-        }
-
-        // Sembradora option selected
-        if(selectedType == 'Sembradora') {
-          $("#output-div").append('<h3>You have selected type: ' +  selectedType + '</h3>');
-        }
-
-        // Arado option selected
-        if(selectedType == 'Arado') {
-          $("#output-div").append('<h3>You have selected type: ' +  selectedType + '</h3>');
-        }
-
-        // Rastra option selected
-        if(selectedType == 'Rastra') {
-          $("#output-div").append('<h3>You have selected type: ' +  selectedType + '</h3>');
-        }
-
-        // Asperson option selected
-        if(selectedType == 'Aspersor') {
-          $("#output-div").append('<h3>You have selected type: ' +  selectedType + '</h3>');
-        }
-      });
-    });
-  </script>
 </head>
 <body>
   <app-root></app-root>
-  </body>
+
+  <script>
+    $(document).ready(function(){
+      $("#calcular").click(function () {
+        console.log("calculate");
+
+        var horas = $("#numHoras").val();
+        var precio = $("#inputPrecio").val();
+        var total = horas * precio;
+
+        $("#precio-display").append(total);
+      });
+    });
+  </script>
+</body>
 </html>

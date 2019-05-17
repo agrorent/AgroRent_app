@@ -14,27 +14,35 @@
             class="btn-group"
             style="margin-top: 370px; position: fixed;">
       <button type="submit"  class="btn btn-success"  [disabled]="tractor.status != 'Libre'" style="margin-left: 10px;" (click)="onAddToApartadoPrueba()">Apartar</button>
+      <button type="submit"  class="btn btn-success"  id="calcular" style="margin-left: 15px;">Calcular Precio</button>
     </div>
   </div>
 </div>
 <br>
 <br>
 <div class="row">
-
-  <div class="col-xs-12" style="margin-top: 500px; position: fixed;">
-    Precio: {{ tractor.precio }}
+  <div class="col-xs-12" style="margin-top: 400px; position: fixed;">
+    <label for="numHoras">Número de Horas deseadas</label>
+    <input type="number" min="1" max="999999" id="numHoras" style="margin-left: 20px;">
+  </div>
+  <div class="col-xs-12" style="margin-top: 430px; position: fixed;">
+    <label for="numHoras">Precio por Hora</label>
+    <input type="number" min="1" max="999999" id="inputPrecio" style="margin-left: 100px;" value="{{ tractor.precio }}" placeholder="{{ tractor.precio }}">
+  </div>
+  <div class="col-xs-12" style="margin-top: 460px; position: fixed;">
+    <p id="precio-display"><b>Precio Total:</b> $</p>
   </div>
   <br>
-  <div class="col-xs-12" style="margin-top: 500px; position: fixed;">
-    Descripción: {{ tractor.description }}
+  <div class="col-xs-12" style="margin-top: 470px; position: fixed;">
+    <p>Descripción: {{ tractor.description }}</p>
   </div>
   <br>
-  <div class="col-xs-12" style="margin-top: 500px; position: fixed;">
-    Status: {{ tractor.status }}
+  <div class="col-xs-12" style="margin-top: 470px; position: fixed;">
+    <p>Status: {{ tractor.status }}</p>
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12" style="margin-top: 530px; position: fixed; width: 45%;">
+  <div class="col-xs-12" style="margin-top: 499px; position: fixed; width: 45%;">
     <ul  class="list-group">
       <li
               class="list-group-item"
