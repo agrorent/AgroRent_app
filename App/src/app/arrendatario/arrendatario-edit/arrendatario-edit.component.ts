@@ -55,7 +55,7 @@ export class ArrendatarioEditComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['/tractores'], {relativeTo: this.route});
+    this.router.navigate(['/admin'], {relativeTo: this.route});
   }
 
   private initForm() {
