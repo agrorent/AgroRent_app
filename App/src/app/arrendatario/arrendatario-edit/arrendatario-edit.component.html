@@ -116,14 +116,53 @@
       </div>
 
       <!--- Características Tractor --->
-      <div class="row" id="caracteristicasTractor" style="display: none;">
+      <div class="row caracteristicas" id="caracteristicasTractor" style="display: none;">
         <div class="col-xs-12">
           <div class="form-group">
             <label for="status">Potencia del Tractor</label>
             <select class="form-control" id="powerSelector">
-              <option>Tractor</option>
-              <option>Empacadora</option>
-              <option>Cosechadora</option>
+              <option>43-60 hp</option>
+              <option>75-85 hp</option>
+              <option>112-132 hp</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!--- Características Empacadora --->
+      <div class="row caracteristicas" id="caracteristicasEmpacadora" style="display: none;">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="marcaEmpacadoraSelector">Marca</label>
+            <select class="form-control" id="marcaEmpacadoraSelector">
+              <option>New Holland</option>
+              <option>John Deere</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="paquetes">Numero de paquetes / día</label>
+            <input
+                    type="number"
+                   min = "1"
+                   max = "999999"
+                   id="paquetes"
+                   formControlName="paquetes"
+                   class="form-control" placeholder="100">
+          </div>
+        </div>
+      </div>
+
+      <!--- Características Cosechadora --->
+      <div class="row caracteristicas" id="caracteristicasCosechadora" style="display: none;">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="status">Marca</label>
+            <select class="form-control" id="marcaCosechadoraSelector">
+              <option>New Holland</option>
+              <option>John Deere</option>
             </select>
           </div>
         </div>
