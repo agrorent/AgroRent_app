@@ -8,12 +8,15 @@ import { TractorDetailComponent } from './recipes/recipe-detail/recipe-detail.co
 import { TractorEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { SignupComponent} from './auth/signup/signup.component';
 import { SigninComponent} from './auth/signin/signin.component';
+import { PostsComponent } from './posts/posts.component';
 import { AuthGuard } from './auth/auth-guard.service';
 import { ArrendadorComponent } from './arrendador/arrendador.component';
 import { ArrendatarioComponent } from './arrendatario/arrendatario.component';
 import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arrendatario-edit.component';
 import { ProfileComponent } from 'src/app/profile/profile.component';
 import {ArrendadorDetailComponent} from './arrendador/arrendador-detail/arrendador-detail.component';
+import { PostsDisponibilidadComponent } from './posts-disponibilidad/posts-disponibilidad.component';
+import { PostsPrecioComponent } from './posts-precio/posts-precio.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -27,6 +30,9 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'signup', component: SignupComponent},
   { path: 'signin', component: SigninComponent},
+  { path: 'filterl', component: PostsComponent},
+  { path: 'filter2', component: PostsDisponibilidadComponent},
+  { path: 'filter3', component: PostsPrecioComponent},
   { path: 'arrendador', component: ArrendadorComponent },
   { path: 'arrendatario', component: ArrendatarioComponent, children: [
       {path: 'new', component: ArrendatarioEditComponent}
