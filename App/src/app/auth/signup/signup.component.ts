@@ -7,6 +7,7 @@ import {DataStorageService} from '../../shared/data-storage.service';
 import {TractorService} from '../../recipes/recipe.service';
 import {MessagesService} from '../../messages/messages.service';
 
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-signup',
@@ -26,6 +27,13 @@ export class SignupComponent implements OnInit {
               private messageService: MessagesService) { }
 
     ngOnInit() {
+      $(document).ready(function() {
+        $("#info").hover(function(){
+          $("#tipoCuenta-info").css("display","block");
+        }, function () {
+          $("#tipoCuenta-info").css("display","none");
+        });
+      });
     }
 
   onSignup(form: NgForm) {
