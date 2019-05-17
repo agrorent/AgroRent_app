@@ -33,9 +33,6 @@ import { ArrendadorDetailComponent } from './arrendador/arrendador-detail/arrend
 import { ArrendadorListComponent } from './arrendador/arrendador-list/arrendador-list.component';
 import { ArrendadorItemComponent } from './arrendador/arrendador-list/arrendador-item/arrendador-item.component';
 import { ArrendatarioComponent } from './arrendatario/arrendatario.component';
-import { ArrendatarioDetailComponent } from './arrendatario/arrendatario-detail/arrendatario-detail.component';
-import { ArrendatarioListComponent } from './arrendatario/arrendatario-list/arrendatario-list.component';
-import { ArrendatarioItemComponent } from './arrendatario/arrendatario-list/arrendatario-item/arrendatario-item.component';
 import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arrendatario-edit.component';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -60,9 +57,6 @@ import { ProfileComponent } from './profile/profile.component';
     ArrendadorListComponent,
     ArrendadorItemComponent,
     ArrendatarioComponent,
-    ArrendatarioDetailComponent,
-    ArrendatarioListComponent,
-    ArrendatarioItemComponent,
     ArrendatarioEditComponent,
     ProfileComponent
   ],
