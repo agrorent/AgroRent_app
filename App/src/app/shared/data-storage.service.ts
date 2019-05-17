@@ -75,7 +75,7 @@ export class DataStorageService {
                     // El campo 0 representa el nombre, el 4 el correo. 
                     // El constructor de Usuario únicamente necesita estos dos datos, pero se pueden poner más
                     // Agregamos cada objeto usuario a la lista que se devolverá
-                    usuarios.push(new Usuario(temp[0], temp[1],temp[2],temp[3],temp[5],temp[6],temp[4]))
+                    usuarios.push(new Usuario(temp[0], temp[1],temp[2],temp[3],temp[5],temp[4],temp[6]))
                 }
 
                 return usuarios;
