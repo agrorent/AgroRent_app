@@ -38,6 +38,12 @@ import { ArrendadorItemComponent } from './arrendador/arrendador-list/arrendador
 import { ArrendatarioComponent } from './arrendatario/arrendatario.component';
 import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arrendatario-edit.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PostsComponent } from './posts/posts.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { PostsDisponibilidadComponent } from './posts-disponibilidad/posts-disponibilidad.component';
+import { FilterDisponibilidadPipe } from './pipes/filter-disponibilidad.pipe';
+import { PostsPrecioComponent } from './posts-precio/posts-precio.component';
+import { FilterPrecioPipe } from './pipes/filter-precio.pipe';
 
 @NgModule({
   declarations: [
@@ -61,7 +67,13 @@ import { ProfileComponent } from './profile/profile.component';
     ArrendadorItemComponent,
     ArrendatarioComponent,
     ArrendatarioEditComponent,
-    ProfileComponent
+    ProfileComponent,
+    PostsComponent,
+    FilterPipe,
+    PostsDisponibilidadComponent,
+    FilterDisponibilidadPipe,
+    PostsPrecioComponent,
+    FilterPrecioPipe
   ],
   imports: [
     BrowserModule,
