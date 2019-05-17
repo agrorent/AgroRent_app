@@ -16,6 +16,7 @@ import {MessagesService} from '../../messages/messages.service';
 export class SignupComponent implements OnInit {
   id: number;
   signup: Usuarios;
+  saldo = 0;
 
    private Usuario: Usuarios[] = [];
 
@@ -35,9 +36,11 @@ export class SignupComponent implements OnInit {
     const localidadUsuario = form.value.localidad;
     const telUsuario = form.value.numeroTel;
     const tipoUsuario = form.value.type;
+    const saldo = this.saldo;
 
     this.authService.signupUser(email, password, (msg: string)=>{  this.messageService.errorSingin(msg); });
-    this.Usuario.push(fNameUsuario, lNameUsuario, localidadUsuario, telUsuario, email, tipoUsuario);
+    // @ts-ignore
+    this.Usuario.push(fNameUsuario, lNameUsuario, localidadUsuario, telUsuario, email, tipoUsuario, saldo);
     this.tractorService.addUsuario(this.Usuario);
     console.log(this.Usuario);
 
