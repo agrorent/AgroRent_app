@@ -10,12 +10,11 @@
 
           </ng-template>
           <ng-template [ngIf]="authService.isAuthenticated()">
-            <li routerLinkActive="active" class="navbar-element"><a routerLink="/tractores">Catálogo</a></li>
+            <li routerLinkActive="active" class="navbar-element"><a routerLink="/admin">Administrador</a></li>
             <li routerLinkActive="active" class="navbar-element"><a routerLink="/apartado">Apartado</a></li>
             <li routerLinkActive="active" class="navbar-element"><a routerLink="/arrendador">Arrendador</a></li>
             <li routerLinkActive="active" class="navbar-element"><a routerLink="/arrendatario">Arrendatario</a></li>
             <li routerLinkActive="active" class="navbar-element"><a routerLink="/profile">Profile</a></li>
-            <li routerLinkActive="active" class="navbar-element"><a routerLink="/admin">Admin</a></li>
           </ng-template>
         </ul>
         <ul class="nav navbar-nav navbar-right">
