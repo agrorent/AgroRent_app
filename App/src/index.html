@@ -14,19 +14,5 @@
 </head>
 <body>
   <app-root></app-root>
-
-  <script>
-    $(document).ready(function(){
-      $("#calcular").click(function () {
-        console.log("calculate");
-
-        var horas = $("#numHoras").val();
-        var precio = $("#inputPrecio").val();
-        var total = horas * precio;
-
-        $("#precio-display").append(total);
-      });
-    });
-  </script>
 </body>
 </html>

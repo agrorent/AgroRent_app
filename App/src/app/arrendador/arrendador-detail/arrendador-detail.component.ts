@@ -8,6 +8,8 @@ import {Response} from '@angular/http';
 import {DataStorageService} from '../../shared/data-storage.service';
 import {MessagesService} from '../../messages/messages.service';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-arrendador-detail',
   templateUrl: './arrendador-detail.component.html',
@@ -33,6 +35,18 @@ export class ArrendadorDetailComponent implements OnInit {
               this.tractor = this.tractorService.getTractor(this.id);
             }
         );
+
+      $(document).ready(function(){
+          $("#calcular").click(function () {
+              console.log("calculate");
+
+              var horas = $("#numHoras").val();
+              var precio = $("#inputPrecio").val();
+              var total = horas * precio;
+
+              $("#precio-display").append(total);
+          });
+      });
   }
   onAddToApartadoPrueba() {
 
