@@ -4,6 +4,8 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import { TractorService } from '../recipe.service';
 import {MessagesService} from '../../messages/messages.service';
+import {Response} from '@angular/http';
+import {DataStorageService} from '../../shared/data-storage.service';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -17,7 +19,8 @@ export class TractorEditComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private tractorService: TractorService,
               private router: Router,
-              private messageService: MessagesService) { }
+              private messageService: MessagesService,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
     this.route.params
@@ -38,6 +41,13 @@ export class TractorEditComponent implements OnInit {
         this.tractorService.addTractor(this.tractorForm.value, (msg: string)=>{  this.messageService.errorSingin(msg); });
     }
       this.onCancel();
+
+      this.dataStorageService.storeTractores()
+        .subscribe(
+            (response: Response) => {
+              console.log(response);
+            }
+        );
   }
 
   onAddCaracteristica() {

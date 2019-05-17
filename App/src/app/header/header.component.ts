@@ -17,7 +17,6 @@ export class HeaderComponent {
 
   }
   onSaveData() {
-    console.log('hola');
     this.dataStorageService.storeTractores()
       .subscribe(
         (response: Response) => {

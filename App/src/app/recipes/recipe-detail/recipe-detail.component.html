@@ -16,10 +16,8 @@
       style="margin-top: 370px; position: fixed;">
       <button type="button" class="btn btn-success dropdown-toggle">Opciones<span class="caret"></span></button>
       <ul class="dropdown-menu"style="z-index: 10;">
-        <li><a (click)="onAddToApartadoPrueba()" style="cursor: pointer; z-index: 10;">Apartar</a></li>
         <li><a style="cursor: pointer;" (click)="onEditTractor()">Editar Info</a></li>
         <li><a style="cursor: pointer;" (click)="onDeleteTractor()">Borrar Maquinaria</a></li>
-        <li><a style="cursor: pointer;" (click)="onAutorizar()">Autorizar</a></li>
       </ul>
     </div>
   </div>
@@ -35,8 +33,8 @@
   <div class="col-xs-12">
     <div
             class="btn-group"
-            style="margin-top: 410px; position: fixed;">
-      <button type="submit"  class="btn btn-success"  [disabled]="tractor.status != 'Pendiente'"  (click)="onAddToApartadoPrueba()">Autorizar</button>
+            style="margin-top: 370px; position: fixed;">
+      <button type="submit"  class="btn btn-success"  [disabled]="tractor.status != 'Pendiente'"  (click)="onAddToApartadoPrueba()" style="margin-left: 178px;">Autorizar</button>
     </div>
   </div>
 </div>
