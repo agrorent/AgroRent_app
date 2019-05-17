@@ -53,8 +53,8 @@
 
         <div class="col-xs-6">
           <div class="form-group">
-            <label for="typeSelector">Tipo de Maquinaria</label>
-            <select class="form-control" id="typeSelector">
+            <label for="tipo">Tipo de Maquinaria</label>
+            <select class="form-control" id="tipo" formControlName="tipo">
               <option>Tractor</option>
               <option>Empacadora</option>
               <option>Cosechadora</option>
@@ -116,11 +116,11 @@
       </div>
 
       <!--- Características Tractor --->
-      <div class="row caracteristicas" id="caracteristicasTractor" style="display: none;">
+      <div class="row caracteristicas" id="caracteristicasTractor" style="display: none;" formArrayName="caracteristicas">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="status">Potencia del Tractor</label>
-            <select class="form-control" id="powerSelector">
+            <label for="status" formControlName="name">Potencia del Tractor</label>
+            <select class="form-control" id="powerSelector" formControlName="amount">
               <option>43-60 hp</option>
               <option>75-85 hp</option>
               <option>112-132 hp</option>
@@ -129,7 +129,7 @@
         </div>
       </div>
 
-      <!--- Características Empacadora --->
+      <!--- Características Empacadora
       <div class="row caracteristicas" id="caracteristicasEmpacadora" style="display: none;">
         <div class="col-xs-12">
           <div class="form-group">
@@ -155,7 +155,7 @@
         </div>
       </div>
 
-      <!--- Características Cosechadora --->
+      <!--- Características Cosechadora
       <div class="row caracteristicas" id="caracteristicasCosechadora" style="display: none;">
         <div class="col-xs-12">
           <div class="form-group">
@@ -166,7 +166,7 @@
             </select>
           </div>
         </div>
-      </div>
+      </div>--->
 
     </form>
   </div>
