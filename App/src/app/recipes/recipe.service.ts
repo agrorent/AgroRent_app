@@ -82,8 +82,13 @@ export class TractorService {
     callback ('Tractor actualizado');
   }
 
-  deleteTractor(index: number) {
+  onAutorizar( callback: Function){
+    callback ('Tractor autorizado');
+  }
+
+  deleteTractor(index: number, callback: Function) {
     this.Tractores.splice(index,1);
     this.TractoresChanged.next(this.Tractores.slice());
+    callback ('Tractor eliminado');
   }
 }

@@ -56,12 +56,12 @@ export class TractorDetailComponent implements OnInit {
      this.router.navigate([ 'edit' ], {relativeTo: this.route});
   }
   onDeleteTractor() {
-    this.tractorService.deleteTractor(this.id);
+    this.tractorService.deleteTractor(this.id, (msg: string)=>{  this.messageService.errorSingin(msg);});
     this.router.navigate(['/tractores']);
   }
 
   onAutorizar() {
-
+    this.tractorService.onAutorizar((msg: string)=>{  this.messageService.errorSingin(msg);})
     this.tractor.status = 'Libre';
     console.log(this.tractor.name + " // " + this.tractor.description + " // " + this.tractor.imagePath + " // " + this.tractor.status + " // " + this.tractor.precio );
   }
