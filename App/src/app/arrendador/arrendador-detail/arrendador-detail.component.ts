@@ -16,6 +16,7 @@ import {ApartadoListService} from '../../shopping-list/shopping-list.service';
   templateUrl: './arrendador-detail.component.html',
   styleUrls: ['./arrendador-detail.component.css']
 })
+
 export class ArrendadorDetailComponent implements OnInit {
   tractor: Tractor;
   id: number;
