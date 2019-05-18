@@ -8,12 +8,15 @@ import {Tractor} from '../recipes/recipe.model';
 import {AuthService} from '../auth/auth.service';
 import {Apartado} from './ingredient.module';
 import {Usuario} from './ingredient.module';
+import {ApartadoListService} from '../shopping-list/shopping-list.service';
 
 
 @Injectable()
 export class DataStorageService {
-  constructor(private http: Http, private recipeService: TractorService,
-              private authService: AuthService) {}
+  constructor(private http: Http,
+              private recipeService: TractorService,
+              private authService: AuthService,
+              private alService: ApartadoListService) {}
 
   storeTractores() {
     const token = this.authService.getToken();
@@ -30,7 +33,8 @@ export class DataStorageService {
     storeApartados() {
         return this.http.put('https://agrorent-7f6fd.firebaseio.com/apartados.json',
 
-            this.recipeService.getApartados());
+            this.alService.getApartados());
+            console.log(this.alService.getApartados());
     }
 
   getTractores() {

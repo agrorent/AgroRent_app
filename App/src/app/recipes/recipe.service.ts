@@ -51,10 +51,9 @@ export class TractorService {
     return this.Tractores[index];
   }
 
-  addApartados(apartados: Apartado, callback: Function) {
-    // @ts-ignore
+  addApartados(apartados: Apartado) {
     this.Apartados.push(apartados);
-    callback('Tractor Apartado');
+    console.log('Manda add?')
   }
 
   addTractoresToApartado(caracteristicas: Caracteristica[]) {
@@ -63,6 +62,7 @@ export class TractorService {
 
   addTractoresToApartadoPrueba(apartado: Apartado) {
     this.slService.addApartadosPrueba(apartado);
+    console.log(apartado);
   }
 
   addTractor(recipe: Tractor, callback: Function) {

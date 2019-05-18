@@ -7,6 +7,7 @@ import {Apartado} from '../../shared/ingredient.module';
 import {Response} from '@angular/http';
 import {DataStorageService} from '../../shared/data-storage.service';
 import {MessagesService} from '../../messages/messages.service';
+import { ApartadoListService } from '../../shopping-list/shopping-list.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -22,7 +23,8 @@ export class TractorDetailComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private dataStorageService: DataStorageService,
-              private messageService: MessagesService) { }
+              private messageService: MessagesService,
+              private ApartadoService: ApartadoListService) { }
 
   ngOnInit() {
     this.route.params
@@ -40,16 +42,23 @@ export class TractorDetailComponent implements OnInit {
   }
 
   onAddToApartadoPrueba() {
+    const name = this.tractor.name;
+    const desc = this.tractor.description;
+    const imageP = this.tractor.imagePath;
+    const status = 'Apartado';
+    const precio = this.tractor.precio;
 
-    console.log(this.tractor.name + " // " + this.tractor.description + " // " + this.tractor.imagePath + " // " + this.tractor.status + " // " + this.tractor.precio );
-    this.apartado = (new Apartado(this.tractor.name, this.tractor.description, this.tractor.imagePath, this.tractor.status = 'Apartado' , this.tractor.precio ));
-    // this.tractorService.addTractoresToApartadoPrueba(this.apartado);
-    this.tractorService.addApartados(this.apartado, (msg: string)=>{  this.messageService.errorSingin(msg);});
-    this.dataStorageService.storeApartados().subscribe(
-        (response: Response) => {
-          console.log(response);
-        }
-    );
+
+    console.log(name, desc, imageP, status, precio );
+    this.apartado = (new Apartado(name, desc, imageP, status, precio ));
+    this.tractorService.addTractoresToApartadoPrueba(this.apartado);
+
+    this.dataStorageService.storeApartados()
+        .subscribe(
+            (response: Response) => {
+              console.log(response);
+            }
+        );
   }
 
   onEditTractor() {
