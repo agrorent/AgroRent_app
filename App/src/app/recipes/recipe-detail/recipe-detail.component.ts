@@ -45,7 +45,7 @@ export class TractorDetailComponent implements OnInit {
     const name = this.tractor.name;
     const desc = this.tractor.description;
     const imageP = this.tractor.imagePath;
-    const status = 'Apartado';
+    const status = this.tractor.status = 'Apartado';
     const precio = this.tractor.precio;
 
 
