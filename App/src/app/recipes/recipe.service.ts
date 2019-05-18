@@ -57,7 +57,7 @@ export class TractorService {
   }
 
   addTractoresToApartadoPrueba(apartado: Apartado, callback: Function) {
-    this.slService.addApartadosPrueba(apartado);
+    //this.slService.addApartadosPrueba(apartado);
     console.log(apartado);
     callback ('Tractor apartado');
   }

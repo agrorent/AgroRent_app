@@ -10,14 +10,15 @@ export class ApartadoListService {
   ];
   private apartados: Apartado[] = [];
 
-
-  getCaracteristicas() {
-    return this.caracteristicas.slice();
+  setApartados(Apartados: Apartado[]) {
+    this.apartados = Apartados;
+    console.log('Mando apartado SL');
   }
-  getApartados() {
 
+  getApartados() {
     return this.apartados.slice();
   }
+
   addCaracteristica(caracteristica: Caracteristica) {
     this.caracteristicas.push(caracteristica);
     this.caracteristicasChanged.next(this.caracteristicas.slice());
@@ -28,8 +29,9 @@ export class ApartadoListService {
     this.caracteristicasChanged.next(this.caracteristicas.slice());
   }
 
-  addApartadosPrueba(t: Apartado) {
+  addApartadosPrueba(t: Apartado, callback: Function) {
     this.apartados.push(t);
+    callback ('Tractor apartado');
   }
 
   getCaracteristica(index: number) {
