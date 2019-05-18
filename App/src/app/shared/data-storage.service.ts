@@ -86,23 +86,22 @@ export class DataStorageService {
             }
         ))
 }
-
-getUsuarios() {
-  console.log("Obteniendo usuarios registrados");
-  this.http.get('https://agrorent-7f6fd.firebaseio.com/usuario.json')
-      .pipe(map(
-          (response: Response) => {
-              console.log("Respuesta de usuarios: ");
-              console.log(response.json());
-              const usuarios: Usuario[] = response.json();
-              return usuarios;
+    getUsuarios() {
+      console.log("Obteniendo usuarios registrados");
+      this.http.get('https://agrorent-7f6fd.firebaseio.com/usuario.json')
+          .pipe(map(
+              (response: Response) => {
+                  console.log("Respuesta de usuarios: ");
+                  console.log(response.json());
+                  const usuarios: Usuario[] = response.json();
+                  return usuarios;
+              }
+          )).subscribe(
+          (usuarios: Usuario[]) => {
+              this.recipeService.setUsuarios(usuarios);
           }
-      )).subscribe(
-      (usuarios: Usuario[]) => {
-          this.recipeService.setUsuarios(usuarios);
-      }
-  );
-}
+      );
+    }
 
     getApartados() {
         this.http.get('https://agrorent-7f6fd.firebaseio.com/apartados.json')

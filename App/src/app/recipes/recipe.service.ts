@@ -36,12 +36,6 @@ export class TractorService {
     return this.Tractores.slice(); // We get a copy of the array whit slice
   }
 
-  getApartados() {
-    console.log('Llega a getApartados?');
-    return this.Apartados.slice(); // We get a copy of the array whit slice
-
-  }
-
   getUsuarios() {
     return this.Usuarios.slice(); // We get a copy of the array whit slice
     console.log(this.Usuarios);
