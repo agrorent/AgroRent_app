@@ -24,7 +24,6 @@ export class TractorService {
   }
 
   setUsuarios(Usuarios: Usuario[]) {
-    console.log("Persistiendo usuarios")
     console.log("Persistiendo usuarios");
     this.Usuarios = Usuarios;
   }
