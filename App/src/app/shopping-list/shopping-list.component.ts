@@ -20,8 +20,7 @@ export class ApartadoComponent implements OnInit {
 
   }
   ngOnInit() {
-    //this.apartados = this.tractorService.getApartados();
-    console.log(this.apartados);
+    this.slService.getApartados();
 
   }
 }

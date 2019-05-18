@@ -22,13 +22,16 @@ export class TractorService {
     this.Tractores = Tractores;
     this.TractoresChanged.next(this.Tractores.slice());
   }
+
   setUsuarios(Usuarios: Usuario[]) {
     console.log("Persistiendo usuarios")
+    console.log("Persistiendo usuarios");
     this.Usuarios = Usuarios;
   }
 
   setApartados(Apartados: Apartado[]) {
     this.Apartados = Apartados;
+    console.log('Mando apartado')
 
   }
 
