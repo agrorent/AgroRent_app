@@ -9,6 +9,7 @@ import {DataStorageService} from '../../shared/data-storage.service';
 import {MessagesService} from '../../messages/messages.service';
 
 import * as $ from 'jquery';
+import {ApartadoListService} from '../../shopping-list/shopping-list.service';
 
 @Component({
   selector: 'app-arrendador-detail',
@@ -24,7 +25,8 @@ export class ArrendadorDetailComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private dataStorageService: DataStorageService,
-              private messageService: MessagesService) { }
+              private messageService: MessagesService,
+              private ApartadoService: ApartadoListService) { }
 
   ngOnInit() {
     this.route.params
@@ -48,12 +50,23 @@ export class ArrendadorDetailComponent implements OnInit {
           });
       });
   }
-  onAddToApartadoPrueba() {
+    onAddToApartadoPrueba() {
+        const name = this.tractor.name;
+        const desc = this.tractor.description;
+        const imageP = this.tractor.imagePath;
+        const status = this.tractor.status = 'Apartado';
+        const precio = this.tractor.precio;
 
-    console.log(this.tractor.name + " // " + this.tractor.description + " // " + this.tractor.imagePath + " // " + this.tractor.status + " // " + this.tractor.precio );
-    this.apartado = (new Apartado(this.tractor.name, this.tractor.description, this.tractor.imagePath, this.tractor.status = 'Apartado' , this.tractor.precio ));
-    // this.tractorService.addTractoresToApartadoPrueba(this.apartado);
-    this.tractorService.addApartados(this.apartado);
 
-  }
+        console.log(name, desc, imageP, status, precio );
+        this.apartado = (new Apartado(name, desc, imageP, status, precio ));
+        this.ApartadoService.addApartadosPrueba(this.apartado, (msg: string)=>{  this.messageService.errorSingin(msg); });
+
+        this.dataStorageService.storeApartados()
+            .subscribe(
+                (response: Response) => {
+                    console.log(response);
+                }
+            );
+    }
 }
