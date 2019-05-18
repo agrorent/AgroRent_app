@@ -28,13 +28,13 @@ export class TractorDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params
-    .subscribe(
-      (params: Params) => {
-        console.log(this.id)
-        this.id = +params['id'];
-        this.tractor = this.tractorService.getTractor(this.id);
-      }
-    );
+        .subscribe(
+            (params: Params) => {
+              console.log(this.id)
+              this.id = +params['id'];
+              this.tractor = this.tractorService.getTractor(this.id);
+            }
+        );
   }
 
   onAddToApartado() {
@@ -62,7 +62,7 @@ export class TractorDetailComponent implements OnInit {
   }
 
   onEditTractor() {
-     this.router.navigate([ 'edit' ], {relativeTo: this.route});
+    this.router.navigate([ 'edit' ], {relativeTo: this.route});
   }
   onDeleteTractor() {
     this.tractorService.deleteTractor(this.id, (msg: string)=>{  this.messageService.errorSingin(msg);});
