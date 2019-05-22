@@ -9,8 +9,9 @@ import {MessagesService} from './messages.service';
 export class MessagesComponent implements OnInit, OnDestroy {
 
 
-  static lastMessage: string = '12345';
-  lastMessage: string = '';
+  static lastMessage: string;
+  lastMessage = '';
+
   constructor(private messageService: MessagesService) {
 
     messageService.subscribe(this);
@@ -27,7 +28,7 @@ export class MessagesComponent implements OnInit, OnDestroy {
     console.log('destroyed');
   }
 
-  onSinginError(msg:string) {
+  onSinginError(msg: string) {
 
     console.log('arrived ti ' + msg);
     console.log('---- ' + MessagesComponent.lastMessage);
